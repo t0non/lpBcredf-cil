@@ -97,7 +97,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className="bg-primary-navy text-white pt-[28px] pb-[24px] md:py-20 lg:py-24 overflow-hidden relative">
+      <section className="bg-primary-navy text-white pt-[110px] pb-[24px] md:py-20 lg:py-24 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-blue/20 rounded-full filter blur-3xl pointer-events-none transform translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-orange/5 rounded-full filter blur-3xl pointer-events-none transform -translate-x-1/3 translate-y-1/3" />
         
