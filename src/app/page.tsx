@@ -496,7 +496,7 @@ export default function Home() {
             {/* Step 1 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">1</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">1</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Escolha seu perfil</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Informe se você é aposentado, pensionista ou trabalhador com carteira assinada.
@@ -507,7 +507,7 @@ export default function Home() {
             {/* Step 2 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">2</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">2</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Inicie a simulação</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Fale com a equipe da BCred Fácil pelo WhatsApp.
@@ -518,7 +518,7 @@ export default function Home() {
             {/* Step 3 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">3</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">3</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Envie as informações</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Compartilhe apenas os dados necessários para a análise inicial.
@@ -529,7 +529,7 @@ export default function Home() {
             {/* Step 4 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">4</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">4</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Confira as possibilidades</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Um consultor explica as opções que podem estar disponíveis para o seu perfil.
@@ -540,7 +540,7 @@ export default function Home() {
             {/* Step 5 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">5</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">5</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Analise as condições</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Confira instituição responsável, parcelas, taxas, prazos e Custo Efetivo Total.
@@ -551,7 +551,7 @@ export default function Home() {
             {/* Step 6 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">6</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">6</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Confirme a contratação</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Caso concorde com as condições, siga o procedimento indicado pela instituição financeira.
@@ -574,7 +574,7 @@ export default function Home() {
             
             {/* Step 1 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">1</span>
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">1</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Escolha seu perfil</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -585,7 +585,7 @@ export default function Home() {
 
             {/* Step 2 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">2</span>
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">2</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Inicie a simulação</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -596,7 +596,7 @@ export default function Home() {
 
             {/* Step 3 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">3</span>
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">3</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Envie as informações iniciais</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -607,7 +607,7 @@ export default function Home() {
 
             {/* Step 4 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">4</span>
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">4</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Confira as possibilidades</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -618,7 +618,7 @@ export default function Home() {
 
             {/* Step 5 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">5</span>
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">5</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Analise as condições</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -629,7 +629,7 @@ export default function Home() {
 
             {/* Step 6 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">6</span>
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">6</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Confirme a contratação</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
