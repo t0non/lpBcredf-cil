@@ -288,7 +288,7 @@ export default function Home() {
           <img 
             src="/mascotecredfacil2.png" 
             alt="" 
-            className="w-[140px] sm:w-[185px] md:w-[230px] lg:w-[280px] object-contain"
+            className="w-[90px] sm:w-[130px] md:w-[170px] lg:w-[210px] object-contain"
           />
         </div>
       </section>
