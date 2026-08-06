@@ -1289,7 +1289,7 @@ export default function Home() {
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-3xl font-display font-extrabold text-primary-navy max-w-[720px] mx-auto">
-              Simule Agora Sem Compromisso
+              Simule Agora <span className="text-primary-orange">Sem Compromisso</span>
             </h2>
             <p className="text-gray-600 mt-2 text-sm max-w-[680px] mx-auto">
               Ao preencher o formulário, nosso time de consultoria local entrará em contato em horário comercial para propor as melhores opções personalizadas.
@@ -1311,7 +1311,7 @@ export default function Home() {
             
             {/* Visual element */}
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-150 space-y-4 min-w-0">
-              <span className="text-xs uppercase tracking-widest text-primary-orange font-extrabold">Correspondente Certificado</span>
+              <span className="text-xs uppercase tracking-widest text-primary-orange font-medium">Correspondente Certificado</span>
               <h3 className="text-2xl font-display font-extrabold text-primary-navy">
                 Atendimento próximo para decisões mais conscientes.
               </h3>
@@ -1325,8 +1325,8 @@ export default function Home() {
 
             {/* Content text */}
             <div className="space-y-6 min-w-0">
-              <h2 className="text-3xl font-display font-extrabold text-primary-navy tracking-tight max-w-[720px]">
-                Quem Somos
+              <h2 className="text-3xl font-display font-extrabold text-primary-navy tracking-tight max-w-[720px] text-center">
+                Quem <span className="text-primary-orange">Somos</span>
               </h2>
               <p className="text-sm text-gray-600 font-sans leading-relaxed max-w-[680px]">
                 Diferente de sistemas robotizados, acreditamos que decisões financeiras importantes requerem contato humano, escuta atenta e paciência para esclarecer taxas, regras e prazos contratuais.
