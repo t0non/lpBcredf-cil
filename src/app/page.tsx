@@ -7,7 +7,6 @@ import { MascotBe } from '@/components/MascotBe';
 import { LeadForm } from '@/components/LeadForm';
 import { FinancialConditions } from '@/components/FinancialConditions';
 import { Container } from '@/components/Container';
-import { BrandMascotSection } from '@/components/BrandMascotSection';
 
 const row1 = [
   { name: "Itaú", src: "/logo_itau.webp", alt: "Logo do Itaú" },
@@ -67,12 +66,13 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className="bg-primary-navy text-white py-14 md:py-20 lg:py-24 overflow-hidden relative">
+      <section className="bg-primary-navy text-white pt-[28px] pb-[24px] md:py-20 lg:py-24 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-blue/20 rounded-full filter blur-3xl pointer-events-none transform translate-x-1/3 -translate-y-1/3" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-orange/5 rounded-full filter blur-3xl pointer-events-none transform -translate-x-1/3 translate-y-1/3" />
         
         <Container className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.08fr)_minmax(380px,0.92fr)] xl:grid-cols-[minmax(0,1.08fr)_minmax(460px,0.92fr)] gap-10 lg:gap-12 xl:gap-16 items-center">
+          {/* Desktop Version */}
+          <div className="hidden lg:grid grid-cols-1 lg:grid-cols-[minmax(0,1.08fr)_minmax(380px,0.92fr)] xl:grid-cols-[minmax(0,1.08fr)_minmax(460px,0.92fr)] gap-10 lg:gap-12 xl:gap-16 items-center">
             
             {/* Hero Left Content */}
             <div className="space-y-6 text-center lg:text-left min-w-0">
@@ -159,6 +159,87 @@ export default function Home() {
 
               </div>
             </div>
+          </div>
+
+          {/* Mobile Version */}
+          <div className="block lg:hidden text-left space-y-0">
+            {/* Selo */}
+            <div className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-[10px] sm:text-[11px] font-bold tracking-wider uppercase animate-pulse">
+              ATENDIMENTO RÁPIDO PELO WHATSAPP
+            </div>
+            
+            {/* Espaço entre selo e título: 14px */}
+            <div className="h-[14px]" />
+            
+            {/* Título */}
+            <h1 className="text-[29px] xs:text-[32px] font-display font-black tracking-tight text-white leading-[1.08] w-full">
+              Crédito consignado em Nova Iguaçu, sem enrolação.
+            </h1>
+            
+            {/* Espaço entre título e descrição: 14px */}
+            <div className="h-[14px]" />
+            
+            {/* Descrição */}
+            <p className="text-[15px] text-gray-300 font-sans leading-relaxed w-full">
+              Para aposentados, pensionistas do INSS e trabalhadores CLT. Entenda suas possibilidades com orientação clara em cada etapa.
+            </p>
+            
+            {/* Espaço entre subheadline e botões: 16px */}
+            <div className="h-[16px]" />
+            
+            {/* Botões */}
+            <div className="flex flex-col gap-[10px] w-full items-center">
+              <a 
+                href="#simulador" 
+                className="w-full h-[48px] flex items-center justify-center bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-[15px] rounded-xl transition-all duration-200 shadow-md text-center"
+              >
+                Ver minhas possibilidades
+              </a>
+              <a 
+                href="#perfil-selector" 
+                className="w-full h-[48px] flex items-center justify-center bg-transparent hover:bg-white/5 text-white border border-white/20 font-display font-semibold text-[15px] rounded-xl transition-all duration-200 text-center"
+              >
+                Falar com um orientador
+              </a>
+            </div>
+            
+            {/* Espaço entre botão secundário e imagem: 20px */}
+            <div className="h-[20px]" />
+            
+            {/* Imagem da senhora com o painel laranja */}
+            <div className="relative h-[290px] w-full max-w-[480px] mx-auto overflow-hidden rounded-tl-[48px] rounded-br-[48px] bg-[#f4ede7] flex flex-row shadow-xl">
+              {/* Photo of the Lady */}
+              <div className="relative w-[56%] h-full">
+                <img
+                  src="/senhorasegurandoocelular.png?v=2"
+                  alt="Senhora utilizando o celular"
+                  className="absolute bottom-0 left-0 h-[105%] w-full object-contain object-bottom z-10"
+                />
+              </div>
+
+              {/* Integrated Orange Panel */}
+              <div className="w-[44%] bg-[#ff7100] flex flex-col justify-center px-3.5 py-4 text-primary-navy z-10 border-l border-[#ff7100]/10">
+                <div className="space-y-1.5 text-left">
+                  <span style={{ fontFamily: 'var(--font-poppins)' }} className="inline-block px-1.5 py-0.5 rounded bg-[#061A3A] text-white font-bold text-[8px] tracking-wider uppercase">
+                    ATENDIMENTO HUMANO
+                  </span>
+                  <h4 style={{ fontFamily: 'var(--font-poppins)' }} className="text-[13px] sm:text-[14px] font-sans font-extrabold text-primary-navy leading-tight">
+                    Orientação rápida pelo WhatsApp.
+                  </h4>
+                  <p style={{ fontFamily: 'var(--font-poppins)' }} className="text-[10px] leading-snug text-primary-navy/85 font-medium font-sans">
+                    Fale com nossa equipe e entenda cada etapa com clareza.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Espaço entre imagem e aviso inferior: 14px */}
+            <div className="h-[14px]" />
+            
+            {/* Aviso inferior */}
+            <p className="text-[11px] text-gray-400 font-sans text-left">
+              Simulação sem compromisso • Sujeita à análise
+            </p>
           </div>
         </Container>
       </section>
@@ -548,73 +629,113 @@ export default function Home() {
          ================================================== */}
       <section id="comparativo" className="py-14 md:py-20 lg:py-24 bg-white border-b border-gray-100">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-primary-orange font-bold text-xs uppercase tracking-wider">Orientação Consciente</span>
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-primary-navy tracking-tight mt-1 max-w-[720px] mx-auto">
-              Compare antes de contratar
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-6">
+            <span className="text-primary-orange font-bold text-xs uppercase tracking-wider">ORIENTAÇÃO CONSCIENTE</span>
+            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-primary-navy tracking-tight mt-2.5 max-w-[720px] mx-auto leading-tight">
+              Entenda as diferenças antes de contratar
             </h2>
-            <p className="text-gray-600 mt-2 text-base max-w-[680px] mx-auto">
-              Entender as diferenças entre as modalidades é fundamental para fazer uma contratação saudável e consciente.
+            <p className="text-gray-600 mt-2.5 text-base max-w-[680px] mx-auto font-sans">
+              Compare como funcionam as modalidades e escolha com mais clareza.
             </p>
           </div>
 
-          {/* Qualitative Comparison Table */}
-          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm max-w-5xl mx-auto">
-            <table className="min-w-full divide-y divide-gray-200 text-left text-sm font-sans">
-              <thead className="bg-gray-50 text-xs text-primary-navy font-bold uppercase tracking-wider">
-                <tr>
-                  <th scope="col" className="px-6 py-4">Categoria</th>
-                  <th scope="col" className="px-6 py-4 bg-primary-blue/5 text-primary-blue">Crédito Consignado</th>
-                  <th scope="col" className="px-6 py-4">Empréstimo Pessoal</th>
-                  <th scope="col" className="px-6 py-4">Cartão Rotativo</th>
-                  <th scope="col" className="px-6 py-4">Cheque Especial</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 bg-white text-gray-700">
-                {/* Row 1 */}
-                <tr>
-                  <td className="px-6 py-4 font-bold text-primary-navy">Taxas de Juros</td>
-                  <td className="px-6 py-4 bg-primary-blue/5 text-primary-blue font-semibold">Geralmente mais baixas</td>
-                  <td className="px-6 py-4">Médias a elevadas</td>
-                  <td className="px-6 py-4">Historicamente muito altas</td>
-                  <td className="px-6 py-4">Historicamente muito altas</td>
-                </tr>
-                {/* Row 2 */}
-                <tr>
-                  <td className="px-6 py-4 font-bold text-primary-navy">Forma de Pagamento</td>
-                  <td className="px-6 py-4 bg-primary-blue/5 text-primary-blue">Desconto direto em folha/benefício</td>
-                  <td className="px-6 py-4">Boleto bancário ou débito</td>
-                  <td className="px-6 py-4">Fatura mensal do cartão</td>
-                  <td className="px-6 py-4">Desconto no saldo da conta</td>
-                </tr>
-                {/* Row 3 */}
-                <tr>
-                  <td className="px-6 py-4 font-bold text-primary-navy">Necessidade de Margem</td>
-                  <td className="px-6 py-4 bg-primary-blue/5 text-primary-blue font-semibold">Sim (obrigatória)</td>
-                  <td className="px-6 py-4">Não aplicável</td>
-                  <td className="px-6 py-4">Não aplicável</td>
-                  <td className="px-6 py-4">Não aplicável</td>
-                </tr>
-                {/* Row 4 */}
-                <tr>
-                  <td className="px-6 py-4 font-bold text-primary-navy">Análise de Crédito</td>
-                  <td className="px-6 py-4 bg-primary-blue/5 text-primary-blue">Simplificada (foco na margem)</td>
-                  <td className="px-6 py-4">Mais rigorosa</td>
-                  <td className="px-6 py-4">Rigorosa na emissão</td>
-                  <td className="px-6 py-4">Pré-aprovada (juros embutidos)</td>
-                </tr>
-              </tbody>
-            </table>
+          {/* Mascote Apontando (Centralized above cards) */}
+          <div className="flex justify-center mb-2 pointer-events-none" aria-hidden="true">
+            <img
+              src="/mascotebcredfacil.png?v=2"
+              alt="Mascote Bê"
+              className="w-[120px] h-[120px] object-contain filter drop-shadow-md"
+            />
           </div>
 
-          {/* Area placeholder for future official rates insertion in the code */}
-          {/* TO INSERT RATES LATER: Modify the ratesData block or add table cells */}
-          <div className="mt-8 max-w-5xl mx-auto text-center space-y-4">
-            <p className="text-xs text-gray-400 font-sans max-w-3xl mx-auto leading-relaxed">
-              As taxas e condições variam entre instituições, períodos e perfis. Antes de contratar, confira a taxa mensal, a taxa anual, o valor das parcelas e o Custo Efetivo Total (CET).
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-6 max-w-4xl mx-auto px-[18px] sm:px-[22px] md:px-0">
+            
+            {/* Card 1: Crédito Consignado */}
+            <div className="bg-[#061A3A] border-2 border-primary-orange/30 rounded-[18px] p-6 flex flex-col justify-between text-white relative shadow-md">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-display font-black text-xl text-white">
+                    Crédito Consignado
+                  </h3>
+                  <span className="bg-primary-orange text-white text-[9px] font-black tracking-wider uppercase px-2 py-0.5 rounded">
+                    DESCONTO EM FOLHA
+                  </span>
+                </div>
+
+                <div className="space-y-4 font-sans text-left mt-6">
+                  <div>
+                    <span className="block text-[11px] text-gray-400 font-bold uppercase tracking-wider">Taxas</span>
+                    <p className="text-[14px] text-gray-100 font-semibold mt-0.5">Geralmente mais baixas</p>
+                  </div>
+                  <div className="border-t border-white/10 pt-3">
+                    <span className="block text-[11px] text-gray-400 font-bold uppercase tracking-wider">Pagamento</span>
+                    <p className="text-[14px] text-gray-100 font-semibold mt-0.5">Desconto direto no benefício ou salário</p>
+                  </div>
+                  <div className="border-t border-white/10 pt-3">
+                    <span className="block text-[11px] text-gray-400 font-bold uppercase tracking-wider">Margem</span>
+                    <p className="text-[14px] text-gray-100 font-semibold mt-0.5">Precisa estar disponível</p>
+                  </div>
+                  <div className="border-t border-white/10 pt-3">
+                    <span className="block text-[11px] text-gray-400 font-bold uppercase tracking-wider">Análise</span>
+                    <p className="text-[14px] text-gray-100 font-semibold mt-0.5">Considera perfil, margem e regras da instituição</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <a
+                  href="#simulador"
+                  className="w-full h-[48px] flex items-center justify-center bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-[14px] rounded-xl transition-all duration-200 shadow-md text-center"
+                >
+                  Ver minhas possibilidades
+                </a>
+              </div>
+            </div>
+
+            {/* Card 2: Empréstimo Pessoal */}
+            <div className="bg-white border border-gray-200 rounded-[18px] p-6 flex flex-col justify-between text-gray-800 relative shadow-sm hover:border-gray-300 transition-colors">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-display font-black text-xl text-primary-navy">
+                    Empréstimo Pessoal
+                  </h3>
+                </div>
+
+                <div className="space-y-4 font-sans text-left mt-6">
+                  <div>
+                    <span className="block text-[11px] text-gray-500 font-bold uppercase tracking-wider">Taxas</span>
+                    <p className="text-[14px] text-gray-900 font-semibold mt-0.5">Podem ser mais elevadas</p>
+                  </div>
+                  <div className="border-t border-gray-100 pt-3">
+                    <span className="block text-[11px] text-gray-500 font-bold uppercase tracking-wider">Pagamento</span>
+                    <p className="text-[14px] text-gray-900 font-semibold mt-0.5">Boleto, débito ou conta bancária</p>
+                  </div>
+                  <div className="border-t border-gray-100 pt-3">
+                    <span className="block text-[11px] text-gray-500 font-bold uppercase tracking-wider">Margem</span>
+                    <p className="text-[14px] text-gray-900 font-semibold mt-0.5">Não utiliza margem consignável</p>
+                  </div>
+                  <div className="border-t border-gray-100 pt-3">
+                    <span className="block text-[11px] text-gray-500 font-bold uppercase tracking-wider">Análise</span>
+                    <p className="text-[14px] text-gray-900 font-semibold mt-0.5">Pode considerar renda e histórico de crédito</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Invisible spacer so the height matches the left card perfectly on desktop */}
+              <div className="mt-8 hidden md:block h-[48px]" />
+            </div>
+
+          </div>
+
+          {/* Aviso Inferior */}
+          <div className="mt-[14px] max-w-4xl mx-auto text-center px-[18px]">
+            <p className="text-[13px] text-gray-400 font-sans leading-relaxed">
+              Taxas, prazos e condições variam conforme perfil, modalidade e instituição financeira responsável.
             </p>
           </div>
-      </Container>
+        </Container>
       </section>
 
       {/* ==================================================
@@ -1032,7 +1153,7 @@ export default function Home() {
           </div>
           
           <div className="mt-10 text-center flex items-center justify-center space-x-3">
-            <MascotBe pose="pointer" className="w-10 h-10" />
+            <MascotBe pose="default" className="w-10 h-10" />
             <p className="text-sm text-gray-600 font-sans italic">
               O Bê ajuda você a encontrar o caminho certo sem complicação.
             </p>
@@ -1040,7 +1161,6 @@ export default function Home() {
         </Container>
       </section>
 
-      <BrandMascotSection />
 
 
       {/* 3. CONFIDENCE SECTION */}

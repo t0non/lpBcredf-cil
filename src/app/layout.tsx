@@ -6,6 +6,7 @@ import { companyConfig } from "@/config/company";
 import { trackingConfig } from "@/config/tracking";
 import { OrganizationJsonLd } from "@/components/OrganizationJsonLd";
 import { GlobalHeaderWrapper } from "@/components/GlobalHeaderWrapper";
+import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -92,6 +93,7 @@ export default function RootLayout({
           {children}
         </main>
         <CookieBanner />
+        <WhatsAppWidget />
       </body>
     </html>
   );
