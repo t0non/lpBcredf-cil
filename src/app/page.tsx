@@ -765,16 +765,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Mascote Apontando (Centralized above cards) */}
-          <div className="flex justify-center mb-2 pointer-events-none" aria-hidden="true">
-            <img
-              src="/mascotebcredfacil.png"
-              alt="Mascote Bê"
-              className="w-[120px] h-[120px] object-contain filter drop-shadow-md"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 md:gap-6 max-w-4xl mx-auto px-[18px] sm:px-[22px] md:px-0">
@@ -1175,27 +1165,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Map/Visual Placeholder */}
-            <div className="lg:col-span-7 bg-gray-100 rounded-2xl overflow-hidden h-80 border border-gray-200 relative flex items-center justify-center min-w-0">
-              {/* Fallback elegant card representational */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex flex-col items-center justify-center p-6 text-center">
-                <svg className="w-12 h-12 text-primary-blue mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <h4 className="font-display font-extrabold text-primary-navy text-lg">Mapa de Localização</h4>
-                <p className="text-xs text-gray-500 max-w-sm mt-1">
-                  Localizados na região central de {companyConfig.city}/{companyConfig.state} para melhor te atender.
-                </p>
-                <a 
-                  href={`https://maps.google.com/?q=${encodeURIComponent(companyConfig.address)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 px-4 py-2 bg-primary-navy hover:bg-primary-blue text-white rounded text-xs font-bold transition-colors"
-                >
-                  Abrir no Google Maps
-                </a>
-              </div>
+            {/* Map/Visual */}
+            <div className="lg:col-span-7 bg-gray-100 rounded-2xl overflow-hidden h-80 border border-gray-200 relative flex items-center justify-center min-w-0 shadow-inner">
+              <iframe
+                title="Mapa de Localização"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(companyConfig.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+              />
             </div>
 
           </div>
