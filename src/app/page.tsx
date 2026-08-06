@@ -29,7 +29,6 @@ const duplicatedRow2 = [...row2, ...row2, ...row2, ...row2, ...row2];
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [openAposentadoFaq, setOpenAposentadoFaq] = useState<number | null>(null);
   const [stepProgress, setStepProgress] = useState(0);
 
   const stepRafRef = useRef<number | null>(null);
@@ -66,9 +65,6 @@ export default function Home() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const toggleAposentadoFaq = (index: number) => {
-    setOpenAposentadoFaq(openAposentadoFaq === index ? null : index);
-  };
 
   const faqData = [
     {
@@ -78,6 +74,14 @@ export default function Home() {
     {
       q: "A simulação de crédito garante a aprovação?",
       a: "Não. A simulação apresenta condições estimadas com base nas informações iniciais. A contratação efetiva e a liberação do crédito estão sujeitas à análise da instituição financeira parceira, margem disponível e verificação de documentos."
+    },
+    {
+      q: "Como saber se tenho margem disponível?",
+      a: "Você pode consultar sua margem consignável atualizada por meio do portal ou aplicativo Meu INSS. Caso tenha dúvidas, nossa equipe pode orientar você sobre como realizar essa consulta de forma segura."
+    },
+    {
+      q: "Quem define as taxas e condições do crédito?",
+      a: "As taxas de juros e condições finais são definidas diretamente pela instituição financeira parceira responsável pela operação de crédito, respeitando sempre os tetos regulamentados pelos órgãos federais."
     },
     {
       q: "Existe algum tipo de pagamento antecipado?",
@@ -90,6 +94,10 @@ export default function Home() {
     {
       q: "Meus dados pessoais ficam protegidos?",
       a: "Sim. Seus dados são coletados exclusivamente para a análise de crédito junto aos parceiros autorizados e tratados com total confidencialidade, seguindo rigorosamente a Lei Geral de Proteção de Dados (LGPD)."
+    },
+    {
+      q: "Como comparar duas propostas de crédito?",
+      a: "Compare sempre o Custo Efetivo Total (CET), que inclui todas as tarifas e encargos, e não apenas a taxa de juros nominal. Analise também o valor da parcela mensal e o prazo total do contrato."
     }
   ];
 
@@ -976,170 +984,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ==================================================
-          6. PERGUNTAS IMPORTANTES (FAQ ACCORDION)
-         ================================================== */}
-      <section id="duvidas-aposentados" className="py-14 md:py-20 lg:py-24 bg-white border-b border-gray-100">
-        <Container>
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <span className="text-primary-orange font-bold text-xs uppercase tracking-wider">Perguntas Frequentes</span>
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-primary-navy tracking-tight mt-1 max-w-[720px] mx-auto">
-              Dúvidas sobre crédito para aposentados
-            </h2>
-            <p className="text-gray-600 mt-2 text-sm sm:text-base max-w-[680px] mx-auto">
-              Encontre respostas diretas, sem burocracia e com total segurança.
-            </p>
-          </div>
 
-          <div className="space-y-4 max-w-4xl mx-auto">
-            
-            {/* FAQ 1 */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300">
-              <button
-                onClick={() => toggleAposentadoFaq(0)}
-                className="w-full flex justify-between items-center p-5 text-left text-sm font-semibold text-primary-navy bg-gray-50/50 hover:bg-gray-50 font-display transition-colors"
-              >
-                <span>Como saber se tenho margem disponível?</span>
-                <svg className={`h-5 w-5 text-primary-orange transition-transform duration-200 ${openAposentadoFaq === 0 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAposentadoFaq === 0 && (
-                <div className="p-5 border-t border-gray-200 bg-white text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                  Você pode consultar sua margem consignável atualizada por meio do portal ou aplicativo Meu INSS. Caso tenha dúvidas, nossa equipe pode orientar você sobre como realizar essa consulta de forma segura.
-                </div>
-              )}
-            </div>
-
-            {/* FAQ 2 */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300">
-              <button
-                onClick={() => toggleAposentadoFaq(1)}
-                className="w-full flex justify-between items-center p-5 text-left text-sm font-semibold text-primary-navy bg-gray-50/50 hover:bg-gray-50 font-display transition-colors"
-              >
-                <span>A simulação garante a aprovação?</span>
-                <svg className={`h-5 w-5 text-primary-orange transition-transform duration-200 ${openAposentadoFaq === 1 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAposentadoFaq === 1 && (
-                <div className="p-5 border-t border-gray-200 bg-white text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                  Não. A simulação apresenta condições estimadas com base nas informações iniciais. A contratação efetiva e a liberação do crédito estão sujeitas à análise da instituição financeira parceira, margem disponível e verificação de documentos.
-                </div>
-              )}
-            </div>
-
-            {/* FAQ 3 */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300">
-              <button
-                onClick={() => toggleAposentadoFaq(2)}
-                className="w-full flex justify-between items-center p-5 text-left text-sm font-semibold text-primary-navy bg-gray-50/50 hover:bg-gray-50 font-display transition-colors"
-              >
-                <span>Quem define as taxas e condições?</span>
-                <svg className={`h-5 w-5 text-primary-orange transition-transform duration-200 ${openAposentadoFaq === 2 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAposentadoFaq === 2 && (
-                <div className="p-5 border-t border-gray-200 bg-white text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                  As taxas de juros e condições finais são definidas diretamente pela instituição financeira parceira responsável pela operação de crédito, respeitando sempre os tetos regulamentados pelos órgãos federais.
-                </div>
-              )}
-            </div>
-
-            {/* FAQ 4 */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300">
-              <button
-                onClick={() => toggleAposentadoFaq(3)}
-                className="w-full flex justify-between items-center p-5 text-left text-sm font-semibold text-primary-navy bg-gray-50/50 hover:bg-gray-50 font-display transition-colors"
-              >
-                <span>Quanto tempo leva para receber uma resposta?</span>
-                <svg className={`h-5 w-5 text-primary-orange transition-transform duration-200 ${openAposentadoFaq === 3 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAposentadoFaq === 3 && (
-                <div className="p-5 border-t border-gray-200 bg-white text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                  O tempo de análise varia conforme o banco parceiro escolhido. Em geral, a resposta inicial e a pré-análise são rápidas, mas a liberação efetiva depende da averbação do contrato pelo INSS.
-                </div>
-              )}
-            </div>
-
-            {/* FAQ 5 */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300">
-              <button
-                onClick={() => toggleAposentadoFaq(4)}
-                className="w-full flex justify-between items-center p-5 text-left text-sm font-semibold text-primary-navy bg-gray-50/50 hover:bg-gray-50 font-display transition-colors"
-              >
-                <span>É necessário pagar algum valor antecipado?</span>
-                <svg className={`h-5 w-5 text-primary-orange transition-transform duration-200 ${openAposentadoFaq === 4 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAposentadoFaq === 4 && (
-                <div className="p-5 border-t border-gray-200 bg-white text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                  Absolutamente NÃO! Nós nunca solicitamos depósitos, transferências, taxas de aval ou pagamentos antecipados para liberação de empréstimos. Qualquer cobrança desse tipo é golpe. Nosso serviço é 100% gratuito.
-                </div>
-              )}
-            </div>
-
-            {/* FAQ 6 */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300">
-              <button
-                onClick={() => toggleAposentadoFaq(5)}
-                className="w-full flex justify-between items-center p-5 text-left text-sm font-semibold text-primary-navy bg-gray-50/50 hover:bg-gray-50 font-display transition-colors"
-              >
-                <span>Como identificar o canal oficial da BCred Fácil?</span>
-                <svg className={`h-5 w-5 text-primary-orange transition-transform duration-200 ${openAposentadoFaq === 5 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAposentadoFaq === 5 && (
-                <div className="p-5 border-t border-gray-200 bg-white text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                  Nosso WhatsApp oficial de atendimento é o {companyConfig.whatsappFormatted} e o nosso site oficial é o único endereço autorizado para simulações online. Desconfie de contatos por números diferentes.
-                </div>
-              )}
-            </div>
-
-            {/* FAQ 7 */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300">
-              <button
-                onClick={() => toggleAposentadoFaq(6)}
-                className="w-full flex justify-between items-center p-5 text-left text-sm font-semibold text-primary-navy bg-gray-50/50 hover:bg-gray-50 font-display transition-colors"
-              >
-                <span>Quais informações nunca devo compartilhar?</span>
-                <svg className={`h-5 w-5 text-primary-orange transition-transform duration-200 ${openAposentadoFaq === 6 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAposentadoFaq === 6 && (
-                <div className="p-5 border-t border-gray-200 bg-white text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                  Você nunca deve compartilhar suas senhas de acesso (como a senha do portal Gov.br ou Meu INSS) ou o código de segurança do seu cartão bancário. Nós solicitamos apenas os dados básicos autorizados por lei para simulação.
-                </div>
-              )}
-            </div>
-
-            {/* FAQ 8 */}
-            <div className="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300">
-              <button
-                onClick={() => toggleAposentadoFaq(7)}
-                className="w-full flex justify-between items-center p-5 text-left text-sm font-semibold text-primary-navy bg-gray-50/50 hover:bg-gray-50 font-display transition-colors"
-              >
-                <span>Como comparar duas propostas de crédito?</span>
-                <svg className={`h-5 w-5 text-primary-orange transition-transform duration-200 ${openAposentadoFaq === 7 ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {openAposentadoFaq === 7 && (
-                <div className="p-5 border-t border-gray-200 bg-white text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                  Compare sempre o Custo Efetivo Total (CET), que inclui todas as tarifas e encargos, e não apenas a taxa de juros nominal. Analise também o valor da parcela mensal e o prazo total do contrato.
-                </div>
-              )}
-            </div>
-
-          </div>
-        </Container>
-      </section>
 
       {/* ==================================================
           7. ATENDIMENTO BCRED FÁCIL
@@ -1172,7 +1017,7 @@ export default function Home() {
                   Falar pelo WhatsApp
                 </a>
                 <a
-                  href="#duvidas-aposentados"
+                  href="#duvidas"
                   className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl text-white bg-primary-blue/30 border border-white/20 hover:bg-white/10 transition-all duration-200 text-center"
                 >
                   Ver canais oficiais
