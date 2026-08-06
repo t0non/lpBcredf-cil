@@ -1195,12 +1195,12 @@ export default function Home() {
             Quer entender quais possibilidades estão disponíveis para você?
           </h2>
           <p className="text-base text-gray-300 max-w-[680px] font-sans">
-            Fale com a equipe da BCred Fácil e receba uma orientação inicial rápida, clara e sem compromisso.
+            Fale com a equipe da BCred Fácil e receba uma análise inicial rápida, clara e sem compromisso.
           </p>
 
           <div className="pt-2">
             <a 
-              href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20receber%20orientação%20sobre%20as%20opções%20de%20crédito.`}
+              href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Tenho%20interesse%20em%20uma%20análise%20de%20crédito%20e%20gostaria%20de%20saber%20quais%20opções%20de%20empréstimo%20estão%20disponíveis%20para%20o%20meu%20perfil.`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-base rounded-xl transition-all duration-200 shadow-lg"
