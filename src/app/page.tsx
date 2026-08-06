@@ -483,14 +483,14 @@ export default function Home() {
             
             {/* Step 1 */}
             {/* Step 1 container */}
-            <div className="relative flex-shrink-0 w-80 snap-start mt-[78px] overflow-visible">
+            <div className="relative flex-shrink-0 w-80 snap-start mt-[105px] overflow-visible">
               {/* Mascot 3 Peeking from behind Card 1 */}
-              <div className="absolute -top-[88px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
+              <div className="absolute -top-[105px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
                 <img
                   src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
                   alt=""
                   aria-hidden="true"
-                  className="w-[95px] h-auto object-contain"
+                  className="w-[135px] h-auto object-contain"
                 />
               </div>
               
@@ -498,7 +498,7 @@ export default function Home() {
               <div className="relative z-10 bg-[#0B2545]/90 border border-white/5 rounded-2xl p-6 h-full flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300 backdrop-blur-sm">
                 <div>
                   <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">1</span>
-                  <h4 className="font-display font-bold text-base text-white mb-2">Escolha seu perfil</h4>
+                  <h4 className="font-display font-bold text-lg text-white mb-2">Escolha seu perfil</h4>
                   <p className="text-xs text-gray-300 leading-relaxed font-sans">
                     Informe se você é aposentado, pensionista ou trabalhador com carteira assinada.
                   </p>
@@ -510,7 +510,7 @@ export default function Home() {
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
                 <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">2</span>
-                <h4 className="font-display font-bold text-base text-white mb-2">Inicie a simulação</h4>
+                <h4 className="font-display font-bold text-lg text-white mb-2">Inicie a simulação</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Fale com a equipe da BCred Fácil pelo WhatsApp.
                 </p>
@@ -521,7 +521,7 @@ export default function Home() {
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
                 <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">3</span>
-                <h4 className="font-display font-bold text-base text-white mb-2">Envie as informações</h4>
+                <h4 className="font-display font-bold text-lg text-white mb-2">Envie as informações</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Compartilhe apenas os dados necessários para a análise inicial.
                 </p>
@@ -532,7 +532,7 @@ export default function Home() {
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
                 <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">4</span>
-                <h4 className="font-display font-bold text-base text-white mb-2">Confira as possibilidades</h4>
+                <h4 className="font-display font-bold text-lg text-white mb-2">Confira as possibilidades</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Um consultor explica as opções que podem estar disponíveis para o seu perfil.
                 </p>
@@ -543,7 +543,7 @@ export default function Home() {
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
                 <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">5</span>
-                <h4 className="font-display font-bold text-base text-white mb-2">Analise as condições</h4>
+                <h4 className="font-display font-bold text-lg text-white mb-2">Analise as condições</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Confira instituição responsável, parcelas, taxas, prazos e Custo Efetivo Total.
                 </p>
@@ -554,7 +554,7 @@ export default function Home() {
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
                 <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">6</span>
-                <h4 className="font-display font-bold text-base text-white mb-2">Confirme a contratação</h4>
+                <h4 className="font-display font-bold text-lg text-white mb-2">Confirme a contratação</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Caso concorde com as condições, siga o procedimento indicado pela instituição financeira.
                 </p>
@@ -575,14 +575,14 @@ export default function Home() {
             />
             
             {/* Step 1 container */}
-            <div className="relative overflow-visible mt-16 w-full">
+            <div className="relative overflow-visible mt-[115px] w-full">
               {/* Mascot 3 Peeking from behind Card 1 */}
-              <div className="absolute -top-[78px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
+              <div className="absolute -top-[94px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
                 <img
                   src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
                   alt=""
                   aria-hidden="true"
-                  className="w-[85px] h-auto object-contain"
+                  className="w-[100px] h-auto object-contain"
                 />
               </div>
               
