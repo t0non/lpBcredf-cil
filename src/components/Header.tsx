@@ -47,9 +47,10 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md py-3 border-b border-gray-100 shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
     >
-      <Container>
+      <div className="py-3">
+        <Container>
         <div className="flex items-center justify-between relative">
           {/* Logo Brand */}
           <Link href="/" className="flex items-center focus:outline-none py-1 absolute left-1/2 transform -translate-x-1/2 lg:relative lg:left-auto lg:transform-none">
@@ -112,6 +113,7 @@ export const Header: React.FC = () => {
           </div>
         </div>
       </Container>
+      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -144,6 +146,9 @@ export const Header: React.FC = () => {
           </div>
         </div>
       )}
+      <div className="bg-primary-orange text-white text-center py-1.5 text-[10px] sm:text-[11px] tracking-[0.18em] font-light uppercase border-t border-white/10">
+        ATENDIMENTO EM ATÉ 10 MINUTOS
+      </div>
     </header>
   );
 };
