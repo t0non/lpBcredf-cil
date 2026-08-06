@@ -46,8 +46,8 @@ export default function CreditoConsignadoInss() {
           title={`Crédito Consignado INSS em Nova Iguaçu com atendimento rápido e seguro.`}
           description="Consulte possibilidades de crédito consignado com parcelas descontadas do benefício. A BCred Fácil explica as condições e acompanha você pelo WhatsApp."
           primaryCtaText="Consultar possibilidades para INSS"
-          secondaryCtaText="Falar com um orientador"
-          secondaryCtaHref={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20falar%20com%20um%20orientador%20sobre%20crédito%20consignado%20INSS.`}
+          secondaryCtaText="Falar com um consultor"
+          secondaryCtaHref={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20falar%20com%20um%20consultor%20sobre%20crédito%20consignado%20INSS.`}
           microcopy="Simulação sem compromisso • Sujeita à margem e à análise da instituição financeira"
           mascotPose="shield"
           whatsappMessage="Olá!%20Gostaria%20de%20consultar%20possibilidades%20de%20crédito%20consignado%20INSS."

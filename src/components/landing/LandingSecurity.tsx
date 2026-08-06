@@ -59,7 +59,7 @@ export const LandingSecurity: React.FC<LandingSecurityProps> = ({
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold rounded-xl text-white bg-primary-orange hover:bg-secondary-orange transition-all duration-200 shadow-lg mt-2"
             >
-              Falar com orientador
+              Falar com consultor
             </a>
 
           </div>

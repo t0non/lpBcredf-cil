@@ -140,7 +140,7 @@ export default function Home() {
                   href="#perfil-selector" 
                   className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/20 font-display font-bold text-base rounded-xl transition-all duration-200 text-center"
                 >
-                  Falar com um orientador
+                  Falar com um consultor
                 </a>
               </div>
               
@@ -231,7 +231,7 @@ export default function Home() {
                 href="#perfil-selector" 
                 className="w-full h-[48px] flex items-center justify-center bg-transparent hover:bg-white/5 text-white border border-white/20 font-display font-semibold text-[15px] rounded-xl transition-all duration-200 text-center"
               >
-                Falar com um orientador
+                Falar com um consultor
               </a>
             </div>
             
@@ -956,7 +956,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold rounded-xl text-white bg-primary-orange hover:bg-secondary-orange transition-all duration-200 shadow-md"
                   >
-                    Falar com Orientador
+                    Falar com Consultor
                   </a>
                 )}
               </div>
@@ -1102,7 +1102,7 @@ export default function Home() {
               </p>
               <ul className="space-y-2 text-sm text-gray-700 font-sans">
                 <li className="flex items-center">
-                  <span className="text-primary-orange mr-2">✔</span> Orientadores qualificados de acordo com a legislação do Banco Central.
+                  <span className="text-primary-orange mr-2">✔</span> Consultores qualificados de acordo com a legislação do Banco Central.
                 </li>
                 <li className="flex items-center">
                   <span className="text-primary-orange mr-2">✔</span> Transparência completa sobre taxas de intermediação bancária.
@@ -1205,7 +1205,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="px-8 py-4 bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-base rounded-xl transition-all duration-200 shadow-lg"
             >
-              Falar com um orientador
+              Falar com um consultor
             </a>
           </div>
 

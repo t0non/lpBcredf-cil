@@ -141,7 +141,7 @@ export default function Seguranca() {
               rel="noopener noreferrer"
               className="px-6 py-3 bg-primary-orange hover:bg-secondary-orange text-white font-semibold text-sm rounded-lg transition-colors shadow-sm"
             >
-              Falar com um orientador oficial
+              Falar com um consultor oficial
             </a>
           </div>
         </div>
