@@ -77,18 +77,7 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* Header CTA Button */}
-          <div className="hidden sm:block">
-            <a
-              href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Vim%20pelo%20site%20da%20BCred%20Fácil%20e%20gostaria%20de%20fazer%20uma%20simulação.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsappClick}
-              className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold rounded-lg text-white bg-primary-orange hover:bg-secondary-orange transition-all duration-200 shadow-md hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:ring-primary-orange"
-            >
-              Simular no WhatsApp
-            </a>
-          </div>
+
 
           {/* Mobile hamburger menu button */}
           <div className="lg:hidden flex items-center">

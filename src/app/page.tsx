@@ -34,27 +34,20 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const element = document.getElementById('como-funciona');
+      const element = document.getElementById('mobile-steps-container');
       if (!element) return;
       
       const rect = element.getBoundingClientRect();
       const elementHeight = rect.height;
       const viewHeight = window.innerHeight;
       
-      // Calculate progress based on scroll position inside the element
-      const start = rect.top - viewHeight;
-      const end = rect.top + elementHeight;
+      // Grow active line relative to trigger point (middle of the screen)
+      const triggerPoint = viewHeight * 0.55; 
+      const currentDistance = triggerPoint - rect.top;
       
-      if (rect.top > viewHeight) {
-        setStepProgress(0);
-      } else if (rect.top + elementHeight < 0) {
-        setStepProgress(100);
-      } else {
-        const total = elementHeight + viewHeight;
-        const current = viewHeight - rect.top;
-        const scrolled = (current / total) * 100;
-        setStepProgress(Math.min(Math.max(scrolled, 0), 100));
-      }
+      let progress = (currentDistance / elementHeight) * 100;
+      progress = Math.min(Math.max(progress, 0), 100);
+      setStepProgress(progress);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -473,20 +466,15 @@ export default function Home() {
 
         <Container className="relative">
           
-          {/* Header section with Mascot on the side */}
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-6">
-            <div className="max-w-2xl text-center md:text-left min-w-0">
-              <span className="text-primary-orange font-bold text-xs uppercase tracking-wider">Passo a Passo</span>
-              <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight mt-1 max-w-[720px]">
-                Como funciona a solicitação?
-              </h2>
-              <p className="text-gray-300 mt-2 text-sm sm:text-base font-sans max-w-[680px]">
-                Etapas claras para orientar você do primeiro contato até o encerramento do seu pedido.
-              </p>
-            </div>
-            <div className="flex-shrink-0">
-              <MascotBe pose="guide" className="w-32 h-32 md:w-36 md:h-36 filter drop-shadow-lg" />
-            </div>
+          {/* Header section */}
+          <div className="max-w-2xl text-center md:text-left min-w-0 mb-12">
+            <span className="text-primary-orange font-bold text-xs uppercase tracking-wider">Passo a Passo</span>
+            <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight mt-1 max-w-[720px]">
+              Como funciona a solicitação?
+            </h2>
+            <p className="text-gray-300 mt-2 text-sm sm:text-base font-sans max-w-[680px]">
+              Etapas claras para orientar você do primeiro contato até o encerramento do seu pedido.
+            </p>
           </div>
 
           {/* Steps Horizontal container for Desktop, Vertical for Mobile */}
@@ -494,7 +482,15 @@ export default function Home() {
           <div className="hidden lg:flex space-x-6 overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-primary-orange scrollbar-track-white/10 snap-x">
             
             {/* Step 1 */}
-            <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
+            <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300 relative overflow-visible mt-[45px]">
+              {/* Mascot 3 Peeking from the top-right of Card 1 */}
+              <div className="absolute -top-[45px] -right-2 pointer-events-none z-20">
+                <img
+                  src="/mascotebcredfacil3.png?v=3"
+                  alt="Mascote Bê"
+                  className="w-[70px] h-auto object-contain"
+                />
+              </div>
               <div>
                 <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">1</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Escolha seu perfil</h4>
@@ -562,7 +558,7 @@ export default function Home() {
           </div>
 
           {/* Mobile Vertical stack */}
-          <div className="lg:hidden relative pl-8 space-y-6">
+          <div id="mobile-steps-container" className="lg:hidden relative pl-8 space-y-6">
             {/* Connection line track */}
             <div className="absolute left-[13px] top-3 bottom-3 w-0.5 bg-white/10 rounded-full" />
             
@@ -573,8 +569,26 @@ export default function Home() {
             />
             
             {/* Step 1 */}
-            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">1</span>
+            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start overflow-visible mt-8">
+              {/* Mascot 3 Peeking from the top-right of Card 1 */}
+              <div className="absolute -top-[38px] right-4 pointer-events-none z-20">
+                <img
+                  src="/mascotebcredfacil3.png?v=3"
+                  alt="Mascote Bê"
+                  className="w-[60px] h-auto object-contain"
+                />
+              </div>
+              <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
+                stepProgress >= 2
+                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  : 'bg-[#0B2545] text-gray-400 border border-white/10'
+              }`}>
+                {stepProgress >= 2 ? (
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : 1}
+              </span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Escolha seu perfil</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -585,7 +599,17 @@ export default function Home() {
 
             {/* Step 2 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">2</span>
+              <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
+                stepProgress >= 18
+                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  : 'bg-[#0B2545] text-gray-400 border border-white/10'
+              }`}>
+                {stepProgress >= 18 ? (
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : 2}
+              </span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Inicie a simulação</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -596,7 +620,17 @@ export default function Home() {
 
             {/* Step 3 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">3</span>
+              <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
+                stepProgress >= 36
+                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  : 'bg-[#0B2545] text-gray-400 border border-white/10'
+              }`}>
+                {stepProgress >= 36 ? (
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : 3}
+              </span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Envie as informações iniciais</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -607,7 +641,17 @@ export default function Home() {
 
             {/* Step 4 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">4</span>
+              <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
+                stepProgress >= 54
+                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  : 'bg-[#0B2545] text-gray-400 border border-white/10'
+              }`}>
+                {stepProgress >= 54 ? (
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : 4}
+              </span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Confira as possibilidades</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -618,7 +662,17 @@ export default function Home() {
 
             {/* Step 5 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">5</span>
+              <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
+                stepProgress >= 72
+                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  : 'bg-[#0B2545] text-gray-400 border border-white/10'
+              }`}>
+                {stepProgress >= 72 ? (
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : 5}
+              </span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Analise as condições</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -629,7 +683,17 @@ export default function Home() {
 
             {/* Step 6 */}
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
-              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-base z-10">6</span>
+              <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
+                stepProgress >= 90
+                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  : 'bg-[#0B2545] text-gray-400 border border-white/10'
+              }`}>
+                {stepProgress >= 90 ? (
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : 6}
+              </span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Confirme a contratação</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
