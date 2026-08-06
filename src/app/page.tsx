@@ -1426,7 +1426,37 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 9. FAQ ACCORDION SECTION */}
+      {/* 9. FINAL CTA SECTION */}
+      <section className="py-14 md:py-20 lg:py-24 bg-primary-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-navy to-primary-blue opacity-90" />
+        <Container className="relative text-center space-y-6 flex flex-col items-center">
+          <MascotBe pose="pointer" className="w-44 h-44" />
+          
+          <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight max-w-[720px]">
+            Quer entender quais possibilidades estão disponíveis para você?
+          </h2>
+          <p className="text-base text-gray-300 max-w-[680px] font-sans">
+            Fale com a equipe da BCred Fácil e receba uma orientação inicial rápida, clara e sem compromisso.
+          </p>
+
+          <div className="pt-2">
+            <a 
+              href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20receber%20orientação%20sobre%20as%20opções%20de%20crédito.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-base rounded-xl transition-all duration-200 shadow-lg"
+            >
+              Falar com um orientador
+            </a>
+          </div>
+
+          <p className="text-[10px] text-gray-400 font-sans max-w-[500px]">
+            A contratação depende da análise e das condições da instituição financeira responsável.
+          </p>
+        </Container>
+      </section>
+
+      {/* 10. FAQ ACCORDION SECTION — Última seção */}
       <section className="py-14 md:py-20 lg:py-24 bg-gray-50 border-t border-gray-200">
         <Container>
           
@@ -1474,36 +1504,6 @@ export default function Home() {
             </Link>
           </div>
 
-        </Container>
-      </section>
-
-      {/* 10. FINAL CTA SECTION */}
-      <section className="py-14 md:py-20 lg:py-24 bg-primary-navy text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-navy to-primary-blue opacity-90" />
-        <Container className="relative text-center space-y-6 flex flex-col items-center">
-          <MascotBe pose="pointer" className="w-44 h-44" />
-          
-          <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight max-w-[720px]">
-            Quer entender quais possibilidades estão disponíveis para você?
-          </h2>
-          <p className="text-base text-gray-300 max-w-[680px] font-sans">
-            Fale com a equipe da BCred Fácil e receba uma orientação inicial rápida, clara e sem compromisso.
-          </p>
-
-          <div className="pt-2">
-            <a 
-              href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20receber%20orientação%20sobre%20as%20opções%20de%20crédito.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-base rounded-xl transition-all duration-200 shadow-lg"
-            >
-              Falar com um orientador
-            </a>
-          </div>
-
-          <p className="text-[10px] text-gray-400 font-sans max-w-[500px]">
-            A contratação depende da análise e das condições da instituição financeira responsável.
-          </p>
         </Container>
       </section>
 
