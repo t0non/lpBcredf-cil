@@ -74,12 +74,14 @@ export const Footer: React.FC = () => {
                 </svg>
                 <span>{companyConfig.address}</span>
               </li>
-              <li className="flex items-center">
-                <svg className="h-5 w-5 text-primary-orange mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span>{companyConfig.phone}</span>
-              </li>
+              {companyConfig.phoneIsReady && (
+                <li className="flex items-center">
+                  <svg className="h-5 w-5 text-primary-orange mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span>{companyConfig.phone}</span>
+                </li>
+              )}
               <li className="flex items-center">
                 <svg className="h-5 w-5 text-primary-orange mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -97,7 +99,7 @@ export const Footer: React.FC = () => {
             INFORMAÇÕES REGULATÓRIAS E LEGAIS IMPORTANTES:
           </p>
           <p>
-            A {companyConfig.name} (Razão Social: <span className="font-mono">{companyConfig.razaoSocial}</span>, CNPJ: <span className="font-mono">{companyConfig.cnpj}</span>, com sede em {companyConfig.address}) atua como {companyConfig.model} de correspondente no país das instituições financeiras parceiras nos termos da Resolução CMN nº 4.935.
+            A {companyConfig.name} (Razão Social: <span className="font-mono">{companyConfig.razaoSocial}</span>{companyConfig.cnpjIsReady && <>, CNPJ: <span className="font-mono">{companyConfig.cnpj}</span></>}, com sede em {companyConfig.address}) atua no atendimento, orientação e encaminhamento de propostas junto às instituições financeiras disponíveis em sua operação. A análise, aprovação e contratação são realizadas pela instituição financeira responsável.
           </p>
           <p>
             A {companyConfig.name} não é uma instituição financeira e não realiza operações de crédito diretamente. As solicitações estão sujeitas a análise de crédito, disponibilidade de margem consignável e demais condições da instituição financeira parceira responsável pela operação de crédito. As taxas de juros, prazos de pagamento, tarifas e o Custo Efetivo Total (CET) variam conforme a instituição parceira escolhida, a modalidade contratada e o perfil do cliente. Consulte sempre o CET antes de confirmar a contratação.
@@ -114,7 +116,7 @@ export const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="border-t border-white/5 pt-6 text-center text-xs text-gray-400">
-          <p>© {currentYear} {companyConfig.name}. Todos os direitos reservados. CNPJ: {companyConfig.cnpj}.</p>
+          <p>© {currentYear} {companyConfig.name}. Todos os direitos reservados.{companyConfig.cnpjIsReady && <> CNPJ: {companyConfig.cnpj}.</>}</p>
         </div>
       </Container>
     </footer>

@@ -614,10 +614,10 @@ export default function Home() {
           <div className="relative w-full overflow-hidden py-2 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-gray-50 before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-gray-50 after:to-transparent">
             <div className="animate-marquee gap-14 md:gap-24 items-center">
               {duplicatedRow1.map((item, idx) => (
-                <div key={idx} className="flex-shrink-0 flex items-center justify-center h-14 md:h-20 px-4">
+                <div key={idx} aria-hidden={idx >= row1.length ? "true" : undefined} className="flex-shrink-0 flex items-center justify-center h-14 md:h-20 px-4">
                   <img
                     src={item.src}
-                    alt={item.alt}
+                    alt={idx >= row1.length ? "" : item.alt}
                     title={item.name}
                     className="h-10 md:h-14 w-auto object-contain max-w-none transition-all duration-200"
                   />
@@ -630,10 +630,10 @@ export default function Home() {
           <div className="relative w-full overflow-hidden py-2 mt-2 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-gray-50 before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-gray-50 after:to-transparent">
             <div className="animate-marquee-reverse gap-14 md:gap-24 items-center">
               {duplicatedRow2.map((item, idx) => (
-                <div key={idx} className="flex-shrink-0 flex items-center justify-center h-14 md:h-20 px-4">
+                <div key={idx} aria-hidden={idx >= row2.length ? "true" : undefined} className="flex-shrink-0 flex items-center justify-center h-14 md:h-20 px-4">
                   <img
                     src={item.src}
-                    alt={item.alt}
+                    alt={idx >= row2.length ? "" : item.alt}
                     title={item.name}
                     className="h-10 md:h-14 w-auto object-contain max-w-none transition-all duration-200"
                   />
@@ -676,14 +676,16 @@ export default function Home() {
               </div>
 
               <div className="pt-2">
-                <a
-                  href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Não%20sei%20se%20tenho%20margem%20disponível.%20Poderiam%20me%20ajudar%20a%20consultar?`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold rounded-xl text-white bg-primary-orange hover:bg-secondary-orange transition-all duration-200 shadow-md"
-                >
-                  Falar com Orientador
-                </a>
+                {companyConfig.whatsappIsReady && (
+                  <a
+                    href={`https://wa.me/${companyConfig.whatsapp}?text=Ol%C3%A1!%20N%C3%A3o%20sei%20se%20tenho%20margem%20dispon%C3%ADvel.%20Poderiam%20me%20ajudar%20a%20consultar?`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 py-3.5 text-base font-bold rounded-xl text-white bg-primary-orange hover:bg-secondary-orange transition-all duration-200 shadow-md"
+                  >
+                    Falar com Orientador
+                  </a>
+                )}
               </div>
             </div>
 
@@ -910,8 +912,12 @@ export default function Home() {
                 <div className="space-y-2">
                   <p><strong>Horário de Atendimento:</strong></p>
                   <p className="text-xs text-gray-300">{companyConfig.workingHours}</p>
-                  <p className="pt-2"><strong>Telefone Oficial:</strong></p>
-                  <p className="text-xs text-gray-300">{companyConfig.phone}</p>
+                  {companyConfig.phoneIsReady && (
+                    <>
+                      <p className="pt-2"><strong>Telefone Oficial:</strong></p>
+                      <p className="text-xs text-gray-300">{companyConfig.phone}</p>
+                    </>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <p><strong>Nosso Endereço:</strong></p>
@@ -1309,21 +1315,26 @@ export default function Home() {
                   <p>{companyConfig.address}</p>
                 </div>
                 <div className="p-4 bg-gray-50 rounded-lg border border-gray-150">
-                  <strong className="block text-primary-navy">Contatos Rápidos:</strong>
-                  <p>Telefone: {companyConfig.phone}</p>
-                  <p>WhatsApp: {companyConfig.whatsappFormatted}</p>
+                  <strong className="block text-primary-navy">Contatos Rapidos:</strong>
+                  {companyConfig.phoneIsReady && <p>Telefone: {companyConfig.phone}</p>}
+                  {companyConfig.whatsappIsReady && <p>WhatsApp: {companyConfig.whatsappFormatted}</p>}
+                  {!companyConfig.phoneIsReady && !companyConfig.whatsappIsReady && (
+                    <p className="text-xs text-gray-500">Canais de atendimento disponiveis em breve.</p>
+                  )}
                 </div>
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                <a 
-                  href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20saber%20onde%20fica%20a%20BCred%20Fácil.`}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="px-5 py-3 bg-primary-orange hover:bg-secondary-orange text-white font-semibold text-sm rounded-lg transition-colors shadow-sm"
-                >
-                  Falar pelo WhatsApp
-                </a>
+                {companyConfig.whatsappIsReady && (
+                  <a
+                    href={`https://wa.me/${companyConfig.whatsapp}?text=Ol%C3%A1!%20Gostaria%20de%20saber%20onde%20fica%20a%20BCred%20F%C3%A1cil.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-3 bg-primary-orange hover:bg-secondary-orange text-white font-semibold text-sm rounded-lg transition-colors shadow-sm"
+                  >
+                    Falar pelo WhatsApp
+                  </a>
+                )}
               </div>
             </div>
 

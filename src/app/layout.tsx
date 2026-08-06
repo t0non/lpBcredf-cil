@@ -55,9 +55,9 @@ export default function RootLayout({
     "@type": "FinancialService",
     "name": companyConfig.name,
     "legalName": companyConfig.razaoSocial,
-    "taxID": companyConfig.cnpj,
+    ...(companyConfig.cnpjIsReady && { "taxID": companyConfig.cnpj }),
     "url": "https://www.bcredfacil.com.br",
-    "telephone": companyConfig.phone,
+    ...(companyConfig.phoneIsReady && { "telephone": companyConfig.phone }),
     "email": companyConfig.email,
     "address": {
       "@type": "PostalAddress",

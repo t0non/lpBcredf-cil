@@ -5,13 +5,16 @@ export interface CompanyConfig {
   name: string;
   razaoSocial: string;
   cnpj: string;
+  cnpjIsReady: boolean;
   address: string;
   city: string;
   state: string;
   zipCode: string;
   phone: string;
-  whatsapp: string; // Used for API links (e.g. 5531999999999)
-  whatsappFormatted: string; // Used for display
+  phoneIsReady: boolean;
+  whatsapp: string;
+  whatsappIsReady: boolean;
+  whatsappFormatted: string;
   email: string;
   workingHours: string;
   serviceArea: string;
@@ -26,7 +29,7 @@ export interface CompanyConfig {
     pixelId: string;
   };
   financialConditions: {
-    hasValidatedData: boolean; // Must remain false until official rates are verified
+    hasValidatedData: boolean;
     minMonths?: number;
     maxMonths?: number;
     minInterestRate?: string;
@@ -48,32 +51,35 @@ export interface CompanyConfig {
 
 export const companyConfig: CompanyConfig = {
   name: "BCred Fácil",
-  razaoSocial: "BCred Financeiro Ltda", // Updated based on Gmail address
-  cnpj: "[CNPJ PENDENTE]", 
-  address: "R. Gov. Portela, 1200 - Centro, Nova Iguaçu - RJ, 26221-030", 
-  city: "Nova Iguaçu", 
-  state: "RJ", 
+  razaoSocial: "BCred Financeiro Ltda",
+  cnpj: "",
+  cnpjIsReady: false,
+  address: "R. Gov. Portela, 1200 - Centro, Nova Iguaçu - RJ, 26221-030",
+  city: "Nova Iguaçu",
+  state: "RJ",
   zipCode: "26221-030",
-  phone: "[TELEFONE PENDENTE]",
-  whatsapp: "5500999999999", 
-  whatsappFormatted: "[WHATSAPP PENDENTE]",
+  phone: "",
+  phoneIsReady: false,
+  whatsapp: "5500999999999",
+  whatsappIsReady: false,
+  whatsappFormatted: "",
   email: "bcred@bcred.net",
   workingHours: "Segunda a Sexta, das 8h às 18h",
   serviceArea: "Nova Iguaçu e região",
   instagram: "https://instagram.com/bcredfacil",
-  model: "Promotora", // Choose: 'Correspondente Bancário' | 'Promotora' | 'Intermediadora' | 'Geradora de Leads'
-  instituicaoContratante: "[INSTITUIÇÃO RESPONSÁVEL PENDENTE]",
-  registroRegulatorio: "[REGISTRO OU IDENTIFICAÇÃO PENDENTE]",
+  model: "Promotora",
+  instituicaoContratante: "",
+  registroRegulatorio: "",
   partners: [
-    "Instituições Financeiras Parceiras Autorizadas"
+    "Instituições Financeiras disponíveis em nossa operação"
   ],
   tracking: {
-    gtmId: "", // Fill with GTM-XXXXXXX
-    gaId: "",  // Fill with G-XXXXXXXXXX
-    pixelId: "" // Fill with Meta Pixel ID
+    gtmId: "",
+    gaId: "",
+    pixelId: ""
   },
   financialConditions: {
-    hasValidatedData: false, // Standard safety flag
-    disclaimer: "Consulte as condições disponíveis para o seu perfil. Valores, taxas, prazos e parcelas variam conforme análise, margem e instituição responsável."
+    hasValidatedData: false,
+    disclaimer: "Taxas, valores, prazos e parcelas variam conforme modalidade, perfil, margem disponível e condições da instituição financeira responsável. A simulação não representa garantia de aprovação ou contratação."
   }
 };

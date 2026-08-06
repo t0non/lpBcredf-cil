@@ -73,15 +73,19 @@ export default function Seguranca() {
               <span className="text-red-500 font-bold text-lg leading-none">✕</span>
               <div>
                 <strong>Não realize depósitos antecipados:</strong>
-                <p className="text-gray-500 text-xs mt-0.5">A lei proíbe cobrança de taxas prévias para liberação de empréstimos. A BCred Fácil nunca solicitará qualquer pagamento antecipado.</p>
+                <p className="text-gray-500 text-xs mt-0.5">Desconfie de solicitações de pagamento antecipado para liberação de crédito e confirme sempre a informação pelos canais oficiais da BCred Fácil.</p>
               </div>
             </div>
 
             <div className="flex items-start space-x-3">
               <span className="text-green-600 font-bold text-lg leading-none">✓</span>
               <div>
-                <strong>Confira sempre o canal oficial:</strong>
-                <p className="text-gray-500 text-xs mt-0.5">Certifique-se de que está conversando com o número de WhatsApp oficial: {companyConfig.whatsappFormatted}.</p>
+                <strong>Confirme sempre o canal oficial:</strong>
+                {companyConfig.whatsappIsReady ? (
+                  <p className="text-gray-500 text-xs mt-0.5">Certifique-se de que está conversando com o número de WhatsApp oficial: {companyConfig.whatsappFormatted}.</p>
+                ) : (
+                  <p className="text-gray-500 text-xs mt-0.5">Confirme o canal oficial pelo site oficial da BCred Fácil antes de qualquer interação.</p>
+                )}
               </div>
             </div>
 
@@ -105,9 +109,16 @@ export default function Seguranca() {
             Se você receber contatos suspeitos em nome da nossa marca, encerre a conversa e entre em contato imediatamente por nossos canais de auditoria rápida:
           </p>
           <div className="p-4 bg-gray-50 rounded-lg border text-sm text-gray-700 space-y-2">
-            <p><strong>WhatsApp Seguro:</strong> {companyConfig.whatsappFormatted}</p>
-            <p><strong>Telefone Geral:</strong> {companyConfig.phone}</p>
+            {companyConfig.whatsappIsReady && (
+              <p><strong>WhatsApp Seguro:</strong> {companyConfig.whatsappFormatted}</p>
+            )}
+            {companyConfig.phoneIsReady && (
+              <p><strong>Telefone Geral:</strong> {companyConfig.phone}</p>
+            )}
             <p><strong>E-mail de Suporte:</strong> {companyConfig.email}</p>
+            {!companyConfig.whatsappIsReady && !companyConfig.phoneIsReady && (
+              <p className="text-xs text-gray-500">Os canais de atendimento oficiais estarão disponíveis em breve nesta página.</p>
+            )}
           </div>
           <div className="flex justify-center pt-2">
             <a 
