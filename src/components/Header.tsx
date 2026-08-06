@@ -15,6 +15,7 @@ export const Header: React.FC = () => {
     { name: 'Início', href: '/' },
     { name: 'INSS Consignado', href: '/credito-consignado-inss' },
     { name: 'Crédito CLT', href: '/credito-do-trabalhador-clt' },
+    { name: 'Portabilidade', href: '/portabilidade-consignado' },
     { name: 'Como Funciona', href: '/#como-funciona' },
     { name: 'Segurança', href: '/seguranca' },
     { name: 'Sobre Nós', href: '/sobre' },

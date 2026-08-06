@@ -1,19 +1,33 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { companyConfig } from '@/config/company';
-import { MascotBe } from '@/components/MascotBe';
 import { LeadForm } from '@/components/LeadForm';
 import { FinancialConditions } from '@/components/FinancialConditions';
-import { FaqCLT } from '@/components/FaqCLT';
+import { Breadcrumb } from '@/components/products/Breadcrumb';
+import { ProductHero } from '@/components/products/ProductHero';
+import { ProductEligibility } from '@/components/products/ProductEligibility';
+import { ProductHowItWorks } from '@/components/products/ProductHowItWorks';
+import { ProductSecurity } from '@/components/products/ProductSecurity';
+import { ProductFaq } from '@/components/products/ProductFaq';
+import { ProductFinalCta } from '@/components/products/ProductFinalCta';
 
-// NOTE: A separate page /antecipacao-saque-aniversario-fgts is planned for
-// the Saque-Aniversario FGTS product. Do NOT publish until confirmed by client.
-// This CLT page must NOT describe FGTS advance payment.
+// NOTE: This page targets: "Crédito do Trabalhador em Nova Iguaçu"
+// IMPORTANT: Do NOT mix this page with Saque-Aniversário FGTS.
+// FGTS advance is a separate product covered at /antecipacao-saque-aniversario-fgts
 
 export const metadata: Metadata = {
-  title: `Credito do Trabalhador CLT em ${companyConfig.city} | ${companyConfig.name}`,
-  description: `Entenda o Credito do Trabalhador para carteira assinada e consulte possibilidades com atendimento rapido e orientacao clara em ${companyConfig.city}/${companyConfig.state}.`,
+  title: `Crédito do Trabalhador CLT em Nova Iguaçu | ${companyConfig.name}`,
+  description: `Entenda o Crédito do Trabalhador para carteira assinada e consulte possibilidades com atendimento rápido e orientação clara em Nova Iguaçu.`,
   alternates: { canonical: '/credito-do-trabalhador-clt' },
+  openGraph: {
+    title: `Crédito do Trabalhador CLT em Nova Iguaçu | ${companyConfig.name}`,
+    description: `Consulte o Crédito do Trabalhador com desconto em folha para trabalhadores elegíveis com carteira assinada em Nova Iguaçu. Orientação rápida pelo WhatsApp.`,
+    url: 'https://www.bcredfacil.com.br/credito-do-trabalhador-clt',
+    siteName: companyConfig.name,
+    locale: 'pt_BR',
+    type: 'website',
+  },
 };
 
 export default function CreditoDoTrabalhadorClt() {
@@ -21,92 +35,278 @@ export default function CreditoDoTrabalhadorClt() {
     <div className="py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <nav className="text-sm text-gray-500 mb-6 font-sans">
-          <a href="/" className="hover:text-primary-orange">Inicio</a> &gt; <span className="text-primary-navy font-semibold">Credito do Trabalhador CLT</span>
-        </nav>
+        <Breadcrumb
+          items={[
+            { label: 'Início', href: '/' },
+            { label: 'Crédito do Trabalhador CLT' },
+          ]}
+        />
 
-        <div className="bg-primary-navy rounded-3xl text-white p-8 sm:p-12 mb-12 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-primary-blue/30 rounded-full filter blur-2xl pointer-events-none" />
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
-            <div className="lg:col-span-8 space-y-4">
-              <span className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-xs font-bold uppercase tracking-wider">
-                Profissionais CLT / Carteira Assinada
-              </span>
-              <h1 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight tp1-desk--headline1">
-                Credito do Trabalhador CLT
-              </h1>
-              <p className="text-base sm:text-lg text-gray-300 max-w-xl font-sans tp1--display">
-                Uma modalidade de credito destinada a trabalhadores com carteira assinada, com parcelas descontadas diretamente em folha de pagamento, em <span className="text-primary-orange font-semibold">{companyConfig.city}/{companyConfig.state}</span>.
-              </p>
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-gray-300 font-sans">
-                <span>Desconto em folha</span>
-                <span>Sujeito a analise</span>
-                <span>Orientacao clara</span>
+        <ProductHero
+          badge="Para quem trabalha com carteira assinada"
+          title="Crédito do Trabalhador em Nova Iguaçu com orientação rápida e sem enrolação."
+          description="Entenda as possibilidades de crédito com desconto em folha para trabalhadores elegíveis. A BCred Fácil explica cada etapa e acompanha você pelo WhatsApp."
+          primaryCtaText="Consultar possibilidades para CLT"
+          secondaryCtaText="Entender como funciona"
+          secondaryCtaHref="#como-funciona"
+          microcopy="A disponibilidade e as condições dependem do vínculo, do perfil e da instituição responsável."
+          mascotPose="guide"
+          whatsappMessage="Olá!%20Gostaria%20de%20consultar%20possibilidades%20de%20Crédito%20do%20Trabalhador%20CLT."
+          trustSignals={[
+            'Retorno rápido',
+            'Orientação sem enrolação',
+            'Sem prometer aprovação',
+          ]}
+        />
+
+        {/* 1. ELEGIBILIDADE */}
+        <ProductEligibility
+          title="Quem pode consultar o Crédito do Trabalhador?"
+          intro="A modalidade é destinada a trabalhadores elegíveis com vínculo formal, conforme as regras vigentes e as condições das instituições financeiras habilitadas."
+          items={[
+            { label: 'Empregados com carteira assinada (CLT)' },
+            { label: 'Trabalhadores domésticos elegíveis' },
+            { label: 'Trabalhadores rurais elegíveis' },
+            { label: 'Empregados de microempreendedores individuais, quando aplicável' },
+            { label: 'Outros públicos previstos pelas regras da modalidade' },
+          ]}
+          warning="O vínculo de emprego não garante aprovação. A solicitação depende das regras vigentes, da margem disponível, do perfil e da análise da instituição financeira responsável."
+        />
+
+        {/* 2. COMO FUNCIONA */}
+        <section id="como-funciona">
+          <ProductHowItWorks
+            title="Como funciona o Crédito do Trabalhador?"
+            subtitle="Parcelas descontadas em folha para trabalhadores elegíveis. Veja as etapas."
+            dark
+            steps={[
+              {
+                title: 'Informe seu vínculo e necessidade',
+                description: 'Fale com a BCred pelo WhatsApp e informe que possui carteira assinada.',
+              },
+              {
+                title: 'Consulte as possibilidades disponíveis',
+                description: 'A equipe verifica quais instituições podem analisar sua solicitação.',
+              },
+              {
+                title: 'Compare taxa, prazo, parcela e CET',
+                description: 'Analise todas as condições com atenção antes de decidir.',
+              },
+              {
+                title: 'Confirme pelos canais da instituição',
+                description: 'Caso concorde, siga o procedimento indicado pela instituição financeira responsável.',
+              },
+            ]}
+            disclaimer="A BCred Fácil não garante aprovação, taxa, valor ou prazo. A empresa empregadora não aprova o crédito diretamente — a decisão é da instituição financeira."
+          />
+        </section>
+
+        {/* 3. SEÇÃO EDUCATIVA: CLT x FGTS */}
+        <section className="py-10 md:py-14 bg-gray-50 border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-primary-navy tracking-tight mb-4">
+              Crédito do Trabalhador é a mesma coisa que antecipação do FGTS?
+            </h2>
+            <p className="text-base text-gray-600 leading-relaxed font-sans mb-6 max-w-2xl">
+              Não. São modalidades distintas com regras, dinâmicas e condições diferentes.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl">
+              <div className="bg-white rounded-2xl p-5 border border-primary-blue/20 shadow-sm">
+                <h3 className="font-display font-bold text-base text-primary-blue mb-3">
+                  Crédito do Trabalhador
+                </h3>
+                <ul className="space-y-2 text-sm text-gray-600 font-sans">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-blue font-bold">•</span>
+                    Desconto direto em folha de pagamento
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-blue font-bold">•</span>
+                    Destinado a trabalhadores elegíveis com vínculo formal
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary-blue font-bold">•</span>
+                    Depende do vínculo, margem e das regras da modalidade
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-2xl p-5 border border-gray-200 shadow-sm">
+                <h3 className="font-display font-bold text-base text-gray-700 mb-3">
+                  Antecipação do Saque-Aniversário FGTS
+                </h3>
+                <ul className="space-y-2 text-sm text-gray-600 font-sans">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-400 font-bold">•</span>
+                    Vinculada ao Saque-Aniversário do FGTS
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-400 font-bold">•</span>
+                    Depende do saldo disponível no FGTS
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gray-400 font-bold">•</span>
+                    Possui dinâmica própria de contratação
+                  </li>
+                </ul>
               </div>
             </div>
-            <div className="lg:col-span-4 flex justify-center">
-              <MascotBe pose="reception" className="w-48 h-48" />
+            <p className="text-xs text-gray-500 font-sans mt-4 max-w-xl">
+              Cada produto possui regras próprias. Antes de consultar, identifique qual modalidade se aplica ao seu perfil.{' '}
+              <Link href="/antecipacao-saque-aniversario-fgts" className="text-primary-blue hover:underline">
+                Saiba mais sobre a antecipação do FGTS →
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        {/* 4. SEGURANÇA */}
+        <ProductSecurity
+          title="Seus dados com segurança durante a contratação"
+          items={[
+            {
+              type: 'danger',
+              label: 'Não compartilhe senhas bancárias',
+              detail: 'Nenhum consultor ou correspondente oficial precisa da sua senha bancária para simular crédito.',
+            },
+            {
+              type: 'danger',
+              label: 'Não informe códigos de SMS',
+              detail: 'Códigos enviados por SMS funcionam como assinaturas digitais. Não os repasse a ninguém.',
+            },
+            {
+              type: 'danger',
+              label: 'Não realize pagamentos antecipados',
+              detail: 'Não existe taxa para liberação de crédito. Qualquer cobrança desse tipo é golpe.',
+            },
+            {
+              type: 'safe',
+              label: 'Confirme o canal oficial de atendimento',
+              detail: 'Verifique se o número de contato corresponde ao WhatsApp oficial da BCred Fácil.',
+            },
+            {
+              type: 'safe',
+              label: 'Leia o contrato com atenção',
+              detail: 'Confira taxa, parcela, prazo e CET antes de assinar qualquer documento digital.',
+            },
+          ]}
+          note="Em caso de dúvida sobre um contato recebido em nome da BCred Fácil, acesse nossa página de segurança para verificar."
+        />
+
+        {/* 5. FORMULÁRIO */}
+        <section id="simulador" className="py-10 md:py-14 bg-white border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-primary-navy">
+                Consulte suas possibilidades para CLT
+              </h2>
+              <p className="text-gray-600 text-sm mt-2 font-sans">
+                Preencha e nossa equipe entra em contato para orientar você sobre as opções disponíveis para o seu perfil.
+              </p>
             </div>
+            <LeadForm
+              defaultProfile="clt"
+              sourcePage="credito-do-trabalhador-clt"
+              ctaText="Consultar possibilidades para CLT"
+            />
           </div>
-        </div>
+        </section>
 
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-8 text-sm text-amber-800 font-sans">
-          <strong>Importante:</strong> O Credito do Trabalhador e uma modalidade destinada a trabalhadores elegiveis, com parcelas descontadas em folha. A disponibilidade, as condicoes e a aprovacao dependem das regras vigentes e da instituicao financeira responsavel.
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 font-sans">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-            <div className="w-10 h-10 rounded bg-primary-blue/10 flex items-center justify-center text-primary-blue font-bold">1</div>
-            <h3 className="font-display font-bold text-lg text-primary-navy">Para Quem e Destinado</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Trabalhadores com carteira assinada (regime CLT) que sejam elegiveis conforme as regras vigentes e as politicas de aceitacao da instituicao financeira responsavel.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-            <div className="w-10 h-10 rounded bg-primary-orange/10 flex items-center justify-center text-primary-orange font-bold">2</div>
-            <h3 className="font-display font-bold text-lg text-primary-navy">Como Funciona o Desconto</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              As parcelas sao descontadas diretamente na folha de pagamento. Condicoes, prazos e taxas variam conforme perfil, margem disponivel e instituicao financeira responsavel.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-            <div className="w-10 h-10 rounded bg-primary-blue/10 flex items-center justify-center text-primary-blue font-bold">3</div>
-            <h3 className="font-display font-bold text-lg text-primary-navy">O Papel da BCred Facil</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              A BCred Facil atua no atendimento, orientacao e encaminhamento da proposta. A analise, aprovacao e contratacao sao realizadas pela instituicao financeira responsavel.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm mb-12 flex flex-col md:flex-row items-center gap-6">
-          <div className="flex-shrink-0">
-            <MascotBe pose="shield" className="w-40 h-40" />
-          </div>
-          <div className="space-y-4">
-            <h3 className="font-display font-extrabold text-xl text-primary-navy">Seus Dados com Seguranca</h3>
-            <p className="text-sm text-gray-600 leading-relaxed font-sans">
-              Para orientar sua solicitacao, a BCred Facil <strong>NUNCA</strong> solicitara suas senhas de acesso a aplicativos bancarios ou do Gov.br. Desconfie de solicitacoes de pagamento antecipado para liberacao de credito e confirme sempre os canais oficiais.
-            </p>
-          </div>
-        </div>
-
-        <div id="simulador" className="mb-12">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-primary-navy">
-              Consulte suas Possibilidades
-            </h2>
-            <p className="text-gray-600 text-sm mt-1">
-              Preencha o formulario e nossa equipe entrara em contato para orientar voce sobre as opcoes disponiveis para o seu perfil.
-            </p>
-          </div>
-          <LeadForm defaultProfile="clt" sourcePage="credito-do-trabalhador-clt" ctaText="Consultar possibilidades para CLT" />
-        </div>
-
-        <div className="mb-12">
+        {/* 6. CONDIÇÕES */}
+        <div className="py-6">
           <FinancialConditions />
         </div>
 
-        <FaqCLT />
+        {/* 7. FAQ */}
+        <ProductFaq
+          title="Dúvidas frequentes sobre Crédito do Trabalhador"
+          subtitle="Respostas claras sobre a modalidade CLT."
+          questions={[
+            {
+              question: 'Quem pode solicitar o Crédito do Trabalhador?',
+              answer: 'Trabalhadores elegíveis com vínculo formal (CLT). A elegibilidade depende das regras vigentes, do perfil e das políticas da instituição financeira. Ter carteira assinada não garante aprovação automática.',
+            },
+            {
+              question: 'Como funciona o desconto em folha?',
+              answer: 'As parcelas são descontadas diretamente na folha de pagamento, conforme acordado na contratação. O valor, prazo e taxa variam conforme a instituição e o perfil do trabalhador.',
+            },
+            {
+              question: 'A empresa onde trabalho precisa autorizar?',
+              answer: 'Em geral, o empregador precisa ser conveniado ou habilitado com a instituição financeira. A aprovação final, porém, é da instituição, não da empresa empregadora.',
+            },
+            {
+              question: 'O vínculo empregatício garante aprovação?',
+              answer: 'Não. O vínculo formal é um requisito, mas a aprovação depende de outros fatores como margem disponível, histórico e políticas da instituição financeira responsável.',
+            },
+            {
+              question: 'O que acontece se eu for demitido?',
+              answer: 'Em caso de demissão, as regras sobre o saldo devedor e a continuidade das parcelas variam conforme a instituição e o contrato assinado. Esse é um ponto importante a verificar antes de contratar.',
+            },
+            {
+              question: 'O FGTS é utilizado na operação?',
+              answer: 'O Crédito do Trabalhador com desconto em folha não utiliza o FGTS diretamente. A antecipação do Saque-Aniversário é uma modalidade separada com regras próprias.',
+            },
+            {
+              question: 'Quem está negativado pode solicitar?',
+              answer: 'Depende da instituição financeira. Algumas modalidades de crédito consignado permitem análise independente do histórico de crédito, mas isso varia conforme as políticas vigentes.',
+            },
+            {
+              question: 'Como comparar duas propostas diferentes?',
+              answer: 'Sempre compare o Custo Efetivo Total (CET), que inclui todas as tarifas e encargos, além da taxa de juros, valor da parcela e prazo total do contrato.',
+            },
+            {
+              question: 'Quanto tempo demora a análise?',
+              answer: 'O prazo varia conforme a instituição financeira. A BCred orienta durante o processo, mas os prazos de análise e resposta são definidos pela instituição responsável.',
+            },
+            {
+              question: 'Crédito do Trabalhador e antecipação FGTS são iguais?',
+              answer: 'Não. São modalidades diferentes. O Crédito do Trabalhador tem parcelas descontadas em folha. A antecipação do Saque-Aniversário usa valores disponíveis no FGTS. Cada uma tem regras e condições próprias.',
+            },
+          ]}
+          pageUrl="https://www.bcredfacil.com.br/credito-do-trabalhador-clt"
+        />
+
+        {/* 8. LINKS INTERNOS */}
+        <section className="py-8 bg-gray-50 border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 className="text-sm font-display font-bold text-primary-navy mb-4 uppercase tracking-wider">
+              Saiba mais
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/antecipacao-saque-aniversario-fgts"
+                className="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm font-semibold text-primary-blue hover:border-primary-blue hover:bg-primary-blue/5 transition-colors"
+              >
+                Antecipação do FGTS →
+              </Link>
+              <Link
+                href="/seguranca"
+                className="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm font-semibold text-primary-navy hover:border-primary-navy/30 hover:bg-gray-50 transition-colors"
+              >
+                Segurança e Prevenção a Golpes →
+              </Link>
+              <Link
+                href="/duvidas"
+                className="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm font-semibold text-primary-navy hover:border-primary-navy/30 hover:bg-gray-50 transition-colors"
+              >
+                Dúvidas Frequentes →
+              </Link>
+              <Link
+                href="/contato"
+                className="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm font-semibold text-primary-navy hover:border-primary-navy/30 hover:bg-gray-50 transition-colors"
+              >
+                Contato →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 9. CTA FINAL */}
+        <ProductFinalCta
+          title="Trabalha com carteira assinada e quer entender essa modalidade?"
+          subtitle="Retorno rápido para você entender as possibilidades do seu perfil. Fale com a equipe da BCred Fácil."
+          ctaText="Consultar possibilidades para CLT"
+          whatsappMessage="Olá!%20Gostaria%20de%20consultar%20possibilidades%20de%20Crédito%20do%20Trabalhador%20CLT."
+        />
 
       </div>
     </div>

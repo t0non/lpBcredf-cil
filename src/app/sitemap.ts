@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/credito-consignado-inss',
     '/credito-do-trabalhador-clt',
+    '/portabilidade-consignado',
     '/sobre',
     '/seguranca',
     '/duvidas',

@@ -1,15 +1,32 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { companyConfig } from '@/config/company';
-import { MascotBe } from '@/components/MascotBe';
 import { LeadForm } from '@/components/LeadForm';
 import { FinancialConditions } from '@/components/FinancialConditions';
-import { FaqINSS } from '@/components/FaqINSS';
+import { Breadcrumb } from '@/components/products/Breadcrumb';
+import { ProductHero } from '@/components/products/ProductHero';
+import { ProductEligibility } from '@/components/products/ProductEligibility';
+import { ProductBenefits } from '@/components/products/ProductBenefits';
+import { ProductHowItWorks } from '@/components/products/ProductHowItWorks';
+import { ProductSecurity } from '@/components/products/ProductSecurity';
+import { ProductFaq } from '@/components/products/ProductFaq';
+import { ProductFinalCta } from '@/components/products/ProductFinalCta';
+
+// NOTE: This page targets the keyword: "crédito consignado INSS em Nova Iguaçu"
 
 export const metadata: Metadata = {
-  title: `Credito Consignado INSS em ${companyConfig.city} | ${companyConfig.name}`,
-  description: `Consulte possibilidades de credito consignado para aposentados e pensionistas do INSS com orientacao clara e atendimento pelo WhatsApp em ${companyConfig.city}/${companyConfig.state}.`,
+  title: `Crédito Consignado INSS em Nova Iguaçu | ${companyConfig.name}`,
+  description: `Consulte possibilidades de crédito consignado para aposentados e pensionistas do INSS em Nova Iguaçu com atendimento rápido e orientação pelo WhatsApp.`,
   alternates: { canonical: '/credito-consignado-inss' },
+  openGraph: {
+    title: `Crédito Consignado INSS em Nova Iguaçu | ${companyConfig.name}`,
+    description: `Consulte possibilidades de crédito consignado para aposentados e pensionistas do INSS em Nova Iguaçu. Atendimento rápido pelo WhatsApp, orientação clara e segurança em cada etapa.`,
+    url: 'https://www.bcredfacil.com.br/credito-consignado-inss',
+    siteName: companyConfig.name,
+    locale: 'pt_BR',
+    type: 'website',
+  },
 };
 
 export default function CreditoConsignadoInss() {
@@ -17,129 +34,276 @@ export default function CreditoConsignadoInss() {
     <div className="py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <nav className="text-sm text-gray-500 mb-6 font-sans">
-          <a href="/" className="hover:text-primary-orange">Inicio</a> &gt; <span className="text-primary-navy font-semibold">Credito Consignado INSS</span>
-        </nav>
+        <Breadcrumb
+          items={[
+            { label: 'Início', href: '/' },
+            { label: 'Crédito Consignado INSS' },
+          ]}
+        />
 
-        <div className="bg-primary-navy rounded-3xl text-white p-8 sm:p-12 mb-12 shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-primary-blue/30 rounded-full filter blur-2xl pointer-events-none" />
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
-            <div className="lg:col-span-8 space-y-4">
-              <span className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-xs font-bold uppercase tracking-wider">
-                Aposentados e Pensionistas
-              </span>
-              <h1 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight tp1-desk--headline1">
-                Credito Consignado INSS
-              </h1>
-              <p className="text-base sm:text-lg text-gray-300 max-w-xl font-sans tp1--display">
-                Uma opcao de credito com parcelas descontadas diretamente do beneficio, sujeita a analise e condicoes da instituicao financeira responsavel, em <span className="text-primary-orange font-semibold">{companyConfig.city}/{companyConfig.state}</span>.
+        <ProductHero
+          badge="Para aposentados e pensionistas do INSS"
+          title={`Crédito Consignado INSS em Nova Iguaçu com atendimento rápido e seguro.`}
+          description="Consulte possibilidades de crédito consignado com parcelas descontadas do benefício. A BCred Fácil explica as condições e acompanha você pelo WhatsApp."
+          primaryCtaText="Consultar possibilidades para INSS"
+          secondaryCtaText="Falar com um orientador"
+          secondaryCtaHref={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20falar%20com%20um%20orientador%20sobre%20crédito%20consignado%20INSS.`}
+          microcopy="Simulação sem compromisso • Sujeita à margem e à análise da instituição financeira"
+          mascotPose="shield"
+          whatsappMessage="Olá!%20Gostaria%20de%20consultar%20possibilidades%20de%20crédito%20consignado%20INSS."
+          trustSignals={[
+            'Atendimento humano',
+            'Explicação clara',
+            'Cuidado com seus dados',
+          ]}
+        />
+
+        {/* 1. ELEGIBILIDADE */}
+        <ProductEligibility
+          title="Quem pode consultar o Crédito Consignado INSS?"
+          intro="A modalidade pode estar disponível para aposentados, pensionistas e outros beneficiários elegíveis, conforme as regras vigentes, a situação do benefício, a margem disponível e a análise da instituição financeira."
+          items={[
+            { label: 'Aposentados do INSS' },
+            { label: 'Pensionistas do INSS' },
+            { label: 'Beneficiários elegíveis conforme as regras da modalidade' },
+          ]}
+          warning="A disponibilidade não é automática. Cada solicitação depende da situação do benefício, da margem consignável e da instituição financeira responsável."
+        />
+
+        {/* 2. BENEFÍCIOS */}
+        <ProductBenefits
+          title="Por que consultar o Crédito Consignado INSS?"
+          subtitle="Entenda as características da modalidade antes de decidir."
+          benefits={[
+            {
+              title: 'Parcelas descontadas do benefício',
+              description: 'O pagamento pode ser realizado por desconto direto no benefício mensal, conforme a contratação e as regras vigentes.',
+              color: 'blue',
+            },
+            {
+              title: 'Condições próprias da modalidade',
+              description: 'O consignado pode possuir condições diferentes de outras formas de crédito. Compare sempre antes de contratar.',
+              color: 'orange',
+            },
+            {
+              title: 'Possibilidade de prazos variados',
+              description: 'Os prazos disponíveis dependem da instituição, do perfil e das regras vigentes. A equipe orienta sobre as opções.',
+              color: 'navy',
+            },
+            {
+              title: 'Orientação durante o processo',
+              description: 'A equipe da BCred ajuda você a entender os próximos passos e as condições apresentadas pela instituição financeira.',
+              color: 'green',
+            },
+          ]}
+        />
+
+        {/* 3. COMO FUNCIONA */}
+        <ProductHowItWorks
+          title="Como funciona o atendimento?"
+          subtitle="Etapas claras para orientar você do primeiro contato até a conclusão."
+          dark
+          steps={[
+            {
+              title: 'Conte o que você precisa',
+              description: 'Fale com a BCred pelo WhatsApp e informe seu perfil de forma inicial.',
+            },
+            {
+              title: 'Consulte as possibilidades',
+              description: 'A equipe verifica quais instituições e modalidades podem estar disponíveis para o seu atendimento.',
+            },
+            {
+              title: 'Confira as condições',
+              description: 'Analise taxa, prazo, valor da parcela, CET e a instituição financeira responsável pela operação.',
+            },
+            {
+              title: 'Siga o procedimento indicado',
+              description: 'Caso concorde com as condições apresentadas, acompanhe as etapas solicitadas pela instituição financeira.',
+            },
+          ]}
+          disclaimer="A BCred Fácil não garante aprovação, taxa, valor ou prazo de liberação. Agimos como promotora, orientando você durante o processo."
+        />
+
+        {/* 4. MARGEM CONSIGNÁVEL */}
+        <section className="py-10 md:py-14 bg-gray-50 border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-primary-navy tracking-tight mb-4">
+              O que é margem consignável?
+            </h2>
+            <p className="text-base text-gray-600 leading-relaxed font-sans mb-6 max-w-2xl">
+              A margem consignável é a parte do benefício que pode ser comprometida com parcelas de operações consignadas. A disponibilidade varia conforme os contratos existentes, as regras vigentes e a situação de cada benefício.
+            </p>
+            <div className="bg-primary-blue/5 border border-primary-blue/20 rounded-xl p-5 max-w-2xl">
+              <p className="text-sm text-primary-navy font-sans leading-relaxed">
+                <strong>Não sabe se possui margem disponível?</strong> Fale com a equipe e receba uma orientação inicial sobre como consultar sua situação.
               </p>
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-gray-300 font-sans">
-                <span>Desconto direto no beneficio</span>
-                <span>Sujeito a margem disponivel</span>
-                <span>Orientacao clara</span>
+              <div className="mt-4">
+                <a
+                  href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20entender%20minha%20margem%20consignável%20no%20INSS.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-sm font-semibold text-primary-blue hover:text-primary-navy transition-colors"
+                >
+                  Consultar minha margem →
+                </a>
               </div>
             </div>
-            <div className="lg:col-span-4 flex justify-center">
-              <MascotBe pose="reception" className="w-48 h-48" />
+          </div>
+        </section>
+
+        {/* 5. SEGURANÇA */}
+        <ProductSecurity
+          title="Cuidado com seus dados durante a contratação"
+          items={[
+            {
+              type: 'danger',
+              label: 'Não compartilhe sua senha do Gov.br',
+              detail: 'Nenhum consultor ou correspondente oficial precisa dessa senha para iniciar uma simulação.',
+            },
+            {
+              type: 'danger',
+              label: 'Não compartilhe sua senha do Meu INSS',
+              detail: 'Sua senha dá acesso a todos os seus dados previdenciários. Nunca a repasse para terceiros.',
+            },
+            {
+              type: 'danger',
+              label: 'Não informe códigos enviados por SMS',
+              detail: 'Códigos recebidos por SMS funcionam como assinaturas digitais e não devem ser compartilhados.',
+            },
+            {
+              type: 'danger',
+              label: 'Não realize pagamentos antecipados',
+              detail: 'Desconfie de cobranças para liberação de crédito. Isso é golpe.',
+            },
+            {
+              type: 'safe',
+              label: 'Confirme sempre o canal oficial de atendimento',
+              detail: `O WhatsApp oficial da BCred Fácil é o único canal autorizado. Verifique antes de iniciar qualquer conversa.`,
+            },
+            {
+              type: 'safe',
+              label: 'Leia as condições antes de confirmar qualquer contrato',
+              detail: 'Confira taxa, parcela, prazo e CET com atenção. A rapidez do atendimento nunca deve substituir os cuidados de segurança.',
+            },
+          ]}
+          note="A rapidez do atendimento nunca deve substituir os cuidados de segurança. Em caso de dúvida sobre um contato, acesse nossa página de segurança."
+        />
+
+        {/* 6. FORMULÁRIO */}
+        <section id="simulador" className="py-10 md:py-14 bg-white border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-primary-navy">
+                Consulte suas possibilidades para INSS
+              </h2>
+              <p className="text-gray-600 text-sm mt-2 font-sans">
+                Preencha e nossa equipe entra em contato para orientar você sobre as opções disponíveis para o seu perfil e margem.
+              </p>
             </div>
+            <LeadForm
+              defaultProfile="aposentado"
+              sourcePage="credito-consignado-inss"
+              ctaText="Consultar possibilidades para INSS"
+            />
           </div>
-        </div>
+        </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 font-sans">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-            <div className="w-10 h-10 rounded bg-primary-blue/10 flex items-center justify-center text-primary-blue font-bold">1</div>
-            <h3 className="font-display font-bold text-lg text-primary-navy">Quem Pode Solicitar</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Aposentados e pensionistas do INSS com margem consignavel disponivel. A elegibilidade e as condicoes variam conforme o tipo de beneficio e a politica da instituicao financeira.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-            <div className="w-10 h-10 rounded bg-primary-orange/10 flex items-center justify-center text-primary-orange font-bold">2</div>
-            <h3 className="font-display font-bold text-lg text-primary-navy">Como Funciona</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              As parcelas sao descontadas diretamente do beneficio mensal, respeitando a margem consignavel regulamentada. As taxas variam conforme a instituicao e o perfil do beneficiario.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-3">
-            <div className="w-10 h-10 rounded bg-primary-blue/10 flex items-center justify-center text-primary-blue font-bold">3</div>
-            <h3 className="font-display font-bold text-lg text-primary-navy">Uso Responsavel</h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              Nossa equipe orienta voce a entender as condicoes antes de contratar, garantindo que o desconto mensal nao comprometa sua renda essencial.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-sm mb-12 flex flex-col md:flex-row items-center gap-6">
-          <div className="flex-shrink-0">
-            <MascotBe pose="shield" className="w-40 h-40" />
-          </div>
-          <div className="space-y-4">
-            <h3 className="font-display font-extrabold text-xl text-primary-navy">
-              Seguranca em Primeiro Lugar
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed font-sans">
-              Para a sua total seguranca: a BCred Facil <strong>NUNCA</strong> solicita senhas do Meu INSS, Gov.br ou cartoes bancarios. Todas as formalizacoes sao realizadas por links oficiais das proprias instituicoes financeiras. Desconfie de solicitacoes de pagamento antecipado e confirme sempre os canais oficiais.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm mb-12 space-y-8 font-sans">
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="font-display font-extrabold text-2xl text-primary-navy">
-              Passo a Passo: Como Autorizar seu Credito no Meu INSS
-            </h3>
-            <p className="text-xs text-gray-500 mt-1">
-              De acordo com as regras da Previdencia Social, voce mesmo realiza a liberacao de forma segura no aplicativo oficial.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-            <div className="space-y-4">
-              <h4 className="font-display font-bold text-lg text-primary-orange flex items-center">
-                <span className="w-6 h-6 rounded-full bg-primary-orange/10 flex items-center justify-center text-xs mr-2">1</span>
-                Como Desbloquear o Beneficio
-              </h4>
-              <ol className="list-decimal pl-5 space-y-2 text-xs text-gray-600">
-                <li>Baixe o aplicativo oficial <strong>Meu INSS</strong> no celular ou acesse o site.</li>
-                <li>Entre com seu CPF e senha da conta <strong>Gov.br</strong>.</li>
-                <li>No campo de pesquisa, digite <strong>&quot;Desbloquear&quot;</strong>.</li>
-                <li>Selecione <strong>&quot;Bloqueio/Desbloqueio de Beneficio para Emprestimo&quot;</strong>.</li>
-                <li>Siga as instrucoes e conclua com a <strong>biometria facial</strong>.</li>
-              </ol>
-            </div>
-            <div className="space-y-4">
-              <h4 className="font-display font-bold text-lg text-primary-blue flex items-center">
-                <span className="w-6 h-6 rounded-full bg-primary-blue/10 flex items-center justify-center text-xs mr-2">2</span>
-                Como Confirmar o Emprestimo (Anuencia)
-              </h4>
-              <ol className="list-decimal pl-5 space-y-2 text-xs text-gray-600">
-                <li>Apos falar com o consultor, acesse o <strong>Meu INSS</strong> com sua conta Gov.br.</li>
-                <li>Procure a opcao <strong>&quot;Confirmar Emprestimo Consignado&quot;</strong>.</li>
-                <li>Selecione o contrato da simulacao que deseja confirmar.</li>
-                <li><strong>Revise todos os valores</strong>, taxas e prazos com atencao.</li>
-                <li>Siga as orientacoes para validar sua identidade.</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-
-        <div id="simulador" className="mb-12">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-primary-navy">
-              Consulte suas Possibilidades
-            </h2>
-            <p className="text-gray-600 text-sm mt-1">
-              Preencha o formulario e nossa equipe entrara em contato para orientar voce sobre as opcoes disponiveis para o seu perfil e margem.
-            </p>
-          </div>
-          <LeadForm defaultProfile="aposentado" sourcePage="credito-consignado-inss" ctaText="Consultar possibilidades para INSS" />
-        </div>
-
-        <div className="mb-12">
+        {/* 7. CONDIÇÕES FINANCEIRAS */}
+        <div className="py-6">
           <FinancialConditions />
         </div>
 
-        <FaqINSS />
+        {/* 8. FAQ */}
+        <ProductFaq
+          title="Dúvidas frequentes sobre Crédito Consignado INSS"
+          subtitle="Respostas diretas para as principais dúvidas sobre a modalidade."
+          questions={[
+            {
+              question: 'Quem pode solicitar Crédito Consignado INSS?',
+              answer: 'Aposentados e pensionistas do INSS com margem consignável disponível. A elegibilidade depende do tipo de benefício, da margem disponível e das políticas de aceitação da instituição financeira responsável.',
+            },
+            {
+              question: 'O que é margem consignável?',
+              answer: 'É a parcela do benefício que pode ser comprometida com parcelas de operações consignadas, conforme os limites estabelecidos pela legislação vigente. A consulta é realizada diretamente no portal Meu INSS.',
+            },
+            {
+              question: 'A simulação garante aprovação?',
+              answer: 'Não. A simulação apresenta condições estimadas. A contratação efetiva e a liberação do crédito estão sujeitas à análise da instituição financeira, à margem disponível e à verificação dos documentos necessários.',
+            },
+            {
+              question: 'Como consultar meus contratos no Meu INSS?',
+              answer: 'Acesse o portal Meu INSS (meu.inss.gov.br) ou o aplicativo com sua conta Gov.br. Na seção de serviços, você pode verificar seus contratos consignados ativos e sua margem disponível.',
+            },
+            {
+              question: 'Preciso desbloquear meu benefício para contratar?',
+              answer: 'Em alguns casos, o benefício pode estar bloqueado para operações consignadas e precisar ser desbloqueado diretamente pelo titular no Meu INSS. Nossa equipe orienta você sobre como verificar essa situação.',
+            },
+            {
+              question: 'A BCred Fácil solicita minha senha do Meu INSS?',
+              answer: 'Não. A BCred Fácil jamais solicita senhas de acesso ao Meu INSS, Gov.br ou de qualquer aplicativo bancário. Se receber esse tipo de pedido, descontinue imediatamente o contato e confirme os canais oficiais.',
+            },
+            {
+              question: 'Quanto tempo leva para receber uma análise?',
+              answer: 'O tempo de análise varia conforme a instituição financeira parceira e a situação do benefício. A BCred orienta você durante o processo, mas os prazos são definidos pela instituição responsável.',
+            },
+            {
+              question: 'Como são definidas as taxas de juros?',
+              answer: 'As taxas são definidas pela instituição financeira responsável, respeitando os limites regulamentados. A BCred apresenta as condições disponíveis para que você possa comparar antes de decidir.',
+            },
+            {
+              question: 'Posso solicitar portabilidade do meu consignado?',
+              answer: 'Sim, caso já possua um contrato consignado, é possível analisar a possibilidade de portabilidade para outra instituição. Consulte nossa página de Portabilidade para entender como funciona.',
+            },
+            {
+              question: 'Como identificar um golpe relacionado ao consignado?',
+              answer: 'Desconfie de contatos não solicitados, pedidos de senha, pagamentos antecipados para liberação de crédito ou promessas de aprovação garantida. Confirme sempre o canal oficial antes de compartilhar qualquer dado.',
+            },
+          ]}
+          pageUrl="https://www.bcredfacil.com.br/credito-consignado-inss"
+        />
+
+        {/* 9. LINKS INTERNOS */}
+        <section className="py-8 bg-gray-50 border-b border-gray-100">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 className="text-sm font-display font-bold text-primary-navy mb-4 uppercase tracking-wider">
+              Saiba mais
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/portabilidade-consignado"
+                className="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm font-semibold text-primary-blue hover:border-primary-blue hover:bg-primary-blue/5 transition-colors"
+              >
+                Portabilidade de Consignado →
+              </Link>
+              <Link
+                href="/seguranca"
+                className="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm font-semibold text-primary-navy hover:border-primary-navy/30 hover:bg-gray-50 transition-colors"
+              >
+                Segurança e Prevenção a Golpes →
+              </Link>
+              <Link
+                href="/duvidas"
+                className="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm font-semibold text-primary-navy hover:border-primary-navy/30 hover:bg-gray-50 transition-colors"
+              >
+                Dúvidas Frequentes →
+              </Link>
+              <Link
+                href="/contato"
+                className="px-4 py-2 rounded-lg bg-white border border-gray-200 text-sm font-semibold text-primary-navy hover:border-primary-navy/30 hover:bg-gray-50 transition-colors"
+              >
+                Contato →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* 10. CTA FINAL */}
+        <ProductFinalCta
+          title="Quer entender as possibilidades disponíveis para seu benefício?"
+          subtitle="Agilidade para orientar, cuidado para proteger seus dados. Fale com a equipe da BCred Fácil pelo WhatsApp."
+          ctaText="Consultar possibilidades para INSS"
+          whatsappMessage="Olá!%20Gostaria%20de%20consultar%20possibilidades%20de%20crédito%20consignado%20INSS."
+        />
 
       </div>
     </div>

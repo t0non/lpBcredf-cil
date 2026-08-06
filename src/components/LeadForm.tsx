@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { companyConfig } from '@/config/company';
 
 interface LeadFormProps {
-  defaultProfile?: 'aposentado' | 'pensionista' | 'clt';
+  defaultProfile?: 'aposentado' | 'pensionista' | 'clt' | 'portabilidade' | 'fgts';
   ctaText?: string;
   sourcePage?: string;
 }
@@ -243,7 +243,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <option value="">Selecione...</option>
               <option value="aposentado">Aposentado do INSS</option>
               <option value="pensionista">Pensionista do INSS</option>
-              <option value="clt">Trabalhador de Carteira Assinada (CLT)</option>
+              <option value="clt">Trabalhador com Carteira Assinada (CLT)</option>
+              <option value="portabilidade">Portabilidade de Consignado</option>
+              <option value="fgts">Antecipação do Saque-Aniversário FGTS</option>
             </select>
             {errors.perfil && <p className="text-red-500 text-xs mt-1">{errors.perfil}</p>}
           </div>
