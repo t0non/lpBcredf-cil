@@ -194,14 +194,6 @@ export default function Home() {
 
           {/* Mobile Version */}
           <div className="block lg:hidden text-left space-y-0">
-            {/* Selo */}
-            <div className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-[10px] sm:text-[11px] font-bold tracking-wider uppercase animate-pulse">
-              ATENDIMENTO RÁPIDO PELO WHATSAPP
-            </div>
-            
-            {/* Espaço entre selo e título: 14px */}
-            <div className="h-[14px]" />
-            
             {/* Título */}
             <h1 className="text-[29px] xs:text-[32px] font-display font-black tracking-tight text-white leading-[1.08] w-full">
               Crédito consignado em Nova Iguaçu, sem enrolação.

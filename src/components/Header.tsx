@@ -47,9 +47,9 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm"
     >
-      <div className="py-3">
+      <div className="py-3 border-b border-gray-100">
         <Container>
         <div className="flex items-center justify-between relative">
           {/* Logo Brand */}
@@ -146,7 +146,7 @@ export const Header: React.FC = () => {
           </div>
         </div>
       )}
-      <div className="bg-primary-orange text-white text-center py-1.5 text-[10px] sm:text-[11px] tracking-[0.18em] font-light uppercase border-t border-white/10">
+      <div className="bg-primary-orange text-white text-center py-1.5 text-[10px] sm:text-[11px] tracking-[0.18em] font-light uppercase">
         ATENDIMENTO EM ATÉ 10 MINUTOS
       </div>
     </header>
