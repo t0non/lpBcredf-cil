@@ -870,14 +870,14 @@ export default function Home() {
             </div>
 
             {/* Right Column (Mascot with shield representing margin safety) */}
-            <div className="lg:col-span-5 flex justify-center min-w-0">
-              <div className="relative p-6 bg-white rounded-3xl border border-gray-100 shadow-xl max-w-sm w-full flex flex-col items-center text-center">
-                <MascotBe pose="shield" className="w-48 h-48 mb-4" />
-                <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">Proteção Garantida</span>
-                <p className="text-xs text-gray-500 font-sans mt-3 px-2 leading-relaxed">
-                  Trabalhamos estritamente dentro da margem estipulada por lei para garantir sua saúde financeira e estabilidade.
-                </p>
-              </div>
+            <div className="lg:col-span-5 flex flex-col items-center justify-center min-w-0">
+              <MascotBe pose="shield" className="w-56 h-56 filter drop-shadow-xl" />
+              <span className="text-[10px] sm:text-[11px] font-light text-primary-blue uppercase tracking-[0.18em] mt-4">
+                PROTEÇÃO GARANTIDA
+              </span>
+              <p className="text-xs text-gray-500 font-sans mt-3 px-2 text-center leading-relaxed max-w-[280px]">
+                Trabalhamos estritamente dentro da margem estipulada por lei para garantir sua saúde financeira e estabilidade.
+              </p>
             </div>
 
           </div>
@@ -1358,9 +1358,9 @@ export default function Home() {
             
             {/* Mascot left */}
             <div className="lg:col-span-4 flex flex-col items-center text-center min-w-0">
-              <MascotBe pose="shield" className="w-56 h-56" />
-              <span className="mt-4 px-3 py-1 rounded bg-primary-orange/20 text-primary-orange font-bold text-xs">
-                Escudo de Proteção BCred
+              <MascotBe pose="shield" className="w-56 h-56 filter drop-shadow-xl" />
+              <span className="text-[10px] sm:text-[11px] font-light text-primary-orange uppercase tracking-[0.18em] mt-4">
+                ESCUDO DE PROTEÇÃO BCRED
               </span>
             </div>
 
