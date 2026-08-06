@@ -1213,65 +1213,72 @@ export default function Home() {
 
       {/* 5. SECURITY CONTRA GOLPES */}
       <section className="py-14 md:py-20 lg:py-24 bg-primary-navy text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary-navy to-primary-blue opacity-50" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary-navy to-primary-blue opacity-50 pointer-events-none" />
         <Container className="relative">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Mascot left */}
-            <div className="lg:col-span-4 flex flex-col items-center text-center min-w-0">
-              <MascotBe pose="shield" className="w-56 h-56 filter drop-shadow-xl" />
-              <span className="bg-white/10 text-primary-orange px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] mt-4">
-                PROTEÇÃO GARANTIDA
-              </span>
+
+          <div className="flex flex-col items-center text-center gap-8 max-w-3xl mx-auto">
+
+            {/* Badge */}
+            <span className="bg-white/10 text-primary-orange px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em]">
+              PROTEÇÃO GARANTIDA
+            </span>
+
+            {/* 1. Headline */}
+            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight leading-tight -mt-4">
+              Sua segurança vem antes de qualquer contratação.
+            </h2>
+
+            {/* 2. Subheadline */}
+            <p className="text-base text-gray-300 -mt-4 max-w-[600px]">
+              O mercado de crédito exige atenção. Para proteger você de golpes e fraudes, siga sempre estas regras básicas de segurança:
+            </p>
+
+            {/* 3. Mascote 5 */}
+            <div className="w-48 h-48 sm:w-60 sm:h-60 flex-shrink-0">
+              <img
+                src="/mascotebcredfacil5.png"
+                alt="Mascote BCred Fácil segurando escudo de proteção"
+                className="w-full h-full object-contain drop-shadow-2xl"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
-            {/* Content Right */}
-            <div className="lg:col-span-8 space-y-6 min-w-0">
-              <h2 className="text-3xl font-display font-extrabold text-white tracking-tight leading-tight max-w-[720px]">
-                Sua segurança vem antes de qualquer contratação.
-              </h2>
-              <p className="text-base text-gray-300 max-w-[680px]">
-                O mercado de crédito exige atenção. Para proteger você de golpes e fraudes, siga sempre estas regras básicas de segurança:
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-sans">
-                <div className="flex items-start space-x-2">
-                  <span className="text-primary-orange font-bold">✕</span>
-                  <span className="text-gray-200">Não informe senhas bancárias sob nenhuma hipótese;</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <span className="text-primary-orange font-bold">✕</span>
-                  <span className="text-gray-200">Não informe senha do Gov.br ou do sistema Meu INSS;</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <span className="text-primary-orange font-bold">✕</span>
-                  <span className="text-gray-200">Nunca compartilhe códigos que receber por SMS;</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <span className="text-primary-orange font-bold">✕</span>
-                  <span className="text-gray-200">Nunca faça depósitos antecipados para liberar crédito;</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <span className="text-primary-orange font-bold">✓</span>
-                  <span className="text-gray-200">Confira sempre o número oficial de atendimento;</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <span className="text-primary-orange font-bold">✓</span>
-                  <span className="text-gray-200">Leia com atenção todos os termos antes de assinar.</span>
-                </div>
+            {/* 4. Topics grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full text-left">
+              <div className="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <span className="text-red-400 font-bold text-lg leading-none mt-0.5">✕</span>
+                <span className="text-sm text-gray-200 font-sans">Não informe senhas bancárias sob nenhuma hipótese;</span>
               </div>
-
-              <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
-                <Link 
-                  href="/seguranca" 
-                  className="w-full sm:w-auto px-6 py-3 bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-sm rounded-lg transition-colors text-center shadow-md"
-                >
-                  Conheça nossos canais oficiais
-                </Link>
+              <div className="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <span className="text-red-400 font-bold text-lg leading-none mt-0.5">✕</span>
+                <span className="text-sm text-gray-200 font-sans">Não informe senha do Gov.br ou do sistema Meu INSS;</span>
               </div>
-
+              <div className="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <span className="text-red-400 font-bold text-lg leading-none mt-0.5">✕</span>
+                <span className="text-sm text-gray-200 font-sans">Nunca compartilhe códigos que receber por SMS;</span>
+              </div>
+              <div className="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <span className="text-red-400 font-bold text-lg leading-none mt-0.5">✕</span>
+                <span className="text-sm text-gray-200 font-sans">Nunca faça depósitos antecipados para liberar crédito;</span>
+              </div>
+              <div className="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <span className="text-green-400 font-bold text-lg leading-none mt-0.5">✓</span>
+                <span className="text-sm text-gray-200 font-sans">Confira sempre o número oficial de atendimento;</span>
+              </div>
+              <div className="flex items-start space-x-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3">
+                <span className="text-green-400 font-bold text-lg leading-none mt-0.5">✓</span>
+                <span className="text-sm text-gray-200 font-sans">Leia com atenção todos os termos antes de assinar.</span>
+              </div>
             </div>
+
+            {/* 5. CTA Button */}
+            <Link
+              href="/seguranca"
+              className="px-8 py-4 bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-base rounded-xl transition-colors shadow-lg"
+            >
+              Conheça nossos canais oficiais
+            </Link>
 
           </div>
         </Container>
