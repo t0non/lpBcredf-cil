@@ -483,14 +483,14 @@ export default function Home() {
             
             {/* Step 1 */}
             {/* Step 1 container */}
-            <div className="relative flex-shrink-0 w-80 snap-start mt-[85px] overflow-visible">
+            <div className="relative flex-shrink-0 w-80 snap-start mt-[78px] overflow-visible">
               {/* Mascot 3 Peeking from behind Card 1 */}
-              <div className="absolute -top-[92px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
+              <div className="absolute -top-[88px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
                 <img
                   src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
                   alt=""
                   aria-hidden="true"
-                  className="w-[120px] h-auto object-contain"
+                  className="w-[95px] h-auto object-contain"
                 />
               </div>
               
@@ -575,14 +575,14 @@ export default function Home() {
             />
             
             {/* Step 1 container */}
-            <div className="relative overflow-visible mt-20 w-full">
+            <div className="relative overflow-visible mt-16 w-full">
               {/* Mascot 3 Peeking from behind Card 1 */}
-              <div className="absolute -top-[90px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
+              <div className="absolute -top-[78px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
                 <img
                   src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
                   alt=""
                   aria-hidden="true"
-                  className="w-[110px] h-auto object-contain"
+                  className="w-[85px] h-auto object-contain"
                 />
               </div>
               
