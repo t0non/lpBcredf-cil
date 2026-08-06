@@ -286,7 +286,7 @@ export default function Home() {
           aria-hidden="true"
         >
           <img 
-            src="/mascotecredfacil2.png" 
+            src="/mascotecredfacil2.png?v=3" 
             alt="" 
             className="w-[90px] sm:w-[130px] md:w-[170px] lg:w-[210px] object-contain"
           />
