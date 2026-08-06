@@ -485,7 +485,7 @@ export default function Home() {
             {/* Step 1 container */}
             <div className="relative flex-shrink-0 w-80 snap-start mt-[105px] overflow-visible">
               {/* Mascot 3 Peeking from behind Card 1 */}
-              <div className="absolute -top-[115px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
+              <div className="absolute -top-[126px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
                 <img
                   src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
                   alt=""
@@ -765,7 +765,7 @@ export default function Home() {
                   <h3 className="font-display font-black text-xl text-white">
                     Crédito Consignado
                   </h3>
-                  <span className="bg-primary-orange text-white text-[9px] font-black tracking-wider uppercase px-2 py-0.5 rounded">
+                  <span className="bg-primary-orange text-white text-[9px] font-medium tracking-wider uppercase px-2 py-0.5 rounded whitespace-nowrap">
                     DESCONTO EM FOLHA
                   </span>
                 </div>
@@ -930,7 +930,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex justify-center lg:justify-start">
                 {companyConfig.whatsappIsReady && (
                   <a
                     href={`https://wa.me/${companyConfig.whatsapp}?text=Ol%C3%A1!%20N%C3%A3o%20sei%20se%20tenho%20margem%20dispon%C3%ADvel.%20Poderiam%20me%20ajudar%20a%20consultar?`}
@@ -947,8 +947,8 @@ export default function Home() {
             {/* Right Column (Mascot with shield representing margin safety) */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center min-w-0">
               <MascotBe pose="shield" className="w-56 h-56 filter drop-shadow-xl" />
-              <span className="text-[10px] sm:text-[11px] font-light text-primary-blue uppercase tracking-[0.18em] mt-4">
-                PROTEÇÃO GARANTIDA
+              <span className="text-[10px] sm:text-[11px] font-light text-gray-500 uppercase tracking-[0.18em] mt-4">
+                PROTEÇÃO <span className="text-primary-blue font-bold">GARANTIDA</span>
               </span>
               <p className="text-xs text-gray-500 font-sans mt-3 px-2 text-center leading-relaxed max-w-[280px]">
                 Trabalhamos estritamente dentro da margem estipulada por lei para garantir sua saúde financeira e estabilidade.
@@ -1188,239 +1188,9 @@ export default function Home() {
             {/* Right Column (Mascot in wave pose) */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center text-center min-w-0">
               <MascotBe pose="reception" className="w-80 h-80 md:w-96 md:h-96 lg:w-[480px] lg:h-[480px] filter drop-shadow-2xl" />
-              <span className="text-xs font-bold text-primary-orange uppercase tracking-wider mt-4">Atendimento Oficial</span>
-              <p className="text-xs text-gray-200 font-sans mt-2 max-w-xs leading-relaxed">
-                Estamos à sua disposição para garantir que você contrate seu crédito com total segurança.
-              </p>
             </div>
 
           </div>
-        </Container>
-      </section>
-
-      {/* 2. PROFILE SELECTOR */}
-      <section id="perfil-selector" className="py-14 md:py-20 lg:py-24 bg-gray-50 border-y border-gray-200">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-display font-extrabold text-primary-navy tracking-tight max-w-[720px] mx-auto">
-              Qual opção combina com o seu perfil?
-            </h2>
-            <p className="text-gray-600 mt-2 text-base max-w-[680px] mx-auto">
-              Escolha seu perfil para entender a modalidade e consultar as possibilidades disponíveis.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Card 1 - INSS */}
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-150 flex flex-col justify-between hover:shadow-lg transition-shadow duration-200">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-primary-blue/10 flex items-center justify-center text-primary-blue">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-display font-extrabold text-primary-navy">
-                  Sou aposentado ou pensionista
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Consulte possibilidades de crédito consignado vinculado ao benefício do INSS.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Link 
-                  href="/credito-consignado-inss" 
-                  className="w-full inline-flex items-center justify-center px-5 py-3 rounded-lg text-white bg-primary-blue hover:bg-primary-navy font-semibold text-sm transition-colors duration-200 shadow-sm"
-                >
-                  Ver opções para INSS
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2 - CLT */}
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-150 flex flex-col justify-between hover:shadow-lg transition-shadow duration-200">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-primary-orange/10 flex items-center justify-center text-primary-orange">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-display font-extrabold text-primary-navy">
-                  Trabalho com carteira assinada
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Entenda como funciona o Crédito do Trabalhador com desconto em folha.
-                </p>
-              </div>
-              <div className="mt-8">
-                <Link 
-                  href="/credito-do-trabalhador-clt" 
-                  className="w-full inline-flex items-center justify-center px-5 py-3 rounded-lg text-white bg-primary-orange hover:bg-secondary-orange font-semibold text-sm transition-colors duration-200 shadow-sm"
-                >
-                  Ver opções para CLT
-                </Link>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-10 text-center flex items-center justify-center space-x-3">
-            <MascotBe pose="default" className="w-10 h-10" />
-            <p className="text-sm text-gray-600 font-sans italic">
-              O Bê ajuda você a encontrar o caminho certo sem complicação.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-
-
-      {/* 3. CONFIDENCE SECTION */}
-      <section className="py-14 md:py-20 lg:py-24 bg-white">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Left Content */}
-            <div className="space-y-6 min-w-0">
-              <h2 className="text-3xl font-display font-extrabold text-primary-navy tracking-tight leading-tight max-w-[720px]">
-                Crédito começa com confiança.
-              </h2>
-              <p className="text-base text-gray-600 leading-relaxed font-sans max-w-[680px]">
-                A <strong>BCred Fácil</strong> oferece atendimento próximo para ajudar você a entender as opções disponíveis, as etapas do processo e as condições apresentadas pelas instituições financeiras parceiras.
-              </p>
-              
-              {/* Pillars */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded bg-primary-blue/10 flex items-center justify-center text-primary-blue">✓</div>
-                  <div>
-                    <h4 className="font-display font-bold text-sm text-primary-navy">Segurança</h4>
-                    <p className="text-xs text-gray-500">Dados protegidos contra vazamentos ou fraudes.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded bg-primary-orange/10 flex items-center justify-center text-primary-orange">✓</div>
-                  <div>
-                    <h4 className="font-display font-bold text-sm text-primary-navy">Agilidade</h4>
-                    <p className="text-xs text-gray-500">Processos digitais sem papelada excessiva.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded bg-primary-orange/10 flex items-center justify-center text-primary-orange">✓</div>
-                  <div>
-                    <h4 className="font-display font-bold text-sm text-primary-navy">Transparência</h4>
-                    <p className="text-xs text-gray-500">Nenhuma taxa oculta ou termo indecifrável.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded bg-primary-blue/10 flex items-center justify-center text-primary-blue">✓</div>
-                  <div>
-                    <h4 className="font-display font-bold text-sm text-primary-navy">Atendimento Humano</h4>
-                    <p className="text-xs text-gray-500">Conversas reais com consultores reais.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Indicators Card */}
-            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-150 text-center space-y-6 min-w-0">
-              <h3 className="font-display font-bold text-lg text-primary-navy">
-                Atuação Transparente e Certificada
-              </h3>
-              <p className="text-xs text-gray-500">
-                Atuamos sob a regulação do Banco Central do Brasil para prestação de serviços de correspondência bancária de forma segura.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-100">
-                  <span className="block text-2xl font-bold text-primary-orange">100%</span>
-                  <span className="text-xs text-gray-500">Digital ou Presencial</span>
-                </div>
-                <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-100">
-                  <span className="block text-2xl font-bold text-emerald-500">Grátis</span>
-                  <span className="text-xs text-gray-500">Taxa de Simulação</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </Container>
-      </section>
-
-      {/* 4. HOW IT WORKS */}
-      <section id="como-funciona" className="py-14 md:py-20 lg:py-24 bg-gray-50 border-t border-gray-200">
-        <Container>
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-display font-extrabold text-primary-navy tracking-tight max-w-[720px] mx-auto">
-              Como funciona o processo de simulação?
-            </h2>
-            <p className="text-gray-600 mt-2 text-base max-w-[680px] mx-auto">
-              Desenvolvemos um processo simplificado em 3 etapas com a orientação do Bê.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Steps Left */}
-            <div className="lg:col-span-8 space-y-8 min-w-0">
-              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 p-6 bg-white rounded-xl shadow-sm border border-gray-150">
-                <div className="w-10 h-10 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold font-display text-lg flex-shrink-0">
-                  1
-                </div>
-                <div>
-                  <h4 className="font-display font-bold text-lg text-primary-navy">Escolha seu perfil</h4>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Selecione se você é aposentado do INSS, pensionista do INSS ou trabalhador CLT no nosso formulário abaixo ou diretamente pelo WhatsApp.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 p-6 bg-white rounded-xl shadow-sm border border-gray-150">
-                <div className="w-10 h-10 rounded-full bg-primary-blue text-white flex items-center justify-center font-bold font-display text-lg flex-shrink-0">
-                  2
-                </div>
-                <div>
-                  <h4 className="font-display font-bold text-lg text-primary-navy">Fale com um consultor</h4>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Um especialista humano da nossa equipe local verifica as informações iniciais e entra em contato para explicar as possibilidades disponíveis de forma didática.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 p-6 bg-white rounded-xl shadow-sm border border-gray-150">
-                <div className="w-10 h-10 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold font-display text-lg flex-shrink-0">
-                  3
-                </div>
-                <div>
-                  <h4 className="font-display font-bold text-lg text-primary-navy">Analise as condições</h4>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Confira as taxas propostas, os prazos das parcelas, o custo total da operação (CET) e as regras contratuais com calma antes de tomar qualquer decisão.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Mascot Right */}
-            <div className="lg:col-span-4 flex justify-center min-w-0">
-              <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-150 text-center max-w-sm w-full">
-                <MascotBe pose="guide" className="w-48 h-48 mx-auto" />
-                <h4 className="font-display font-bold text-sm text-primary-navy mt-4">“Planejamento em primeiro lugar”</h4>
-                <p className="text-xs text-gray-500 mt-1">
-                  Revisamos cada detalhe com você para garantir que as parcelas caibam com segurança no seu orçamento mensal.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="max-w-3xl mx-auto mt-10">
-            <p className="text-xs text-center text-gray-500 bg-white p-3 rounded-lg border border-gray-150 font-sans flex items-center justify-center gap-1.5">
-              <svg className="w-4.5 h-4.5 text-primary-orange flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              <span><strong>Nota regulatória:</strong> A solicitação está sujeita à análise de crédito, disponibilidade de margem consignável e aprovação da instituição financeira parceira responsável.</span>
-            </p>
-          </div>
-
         </Container>
       </section>
 
@@ -1434,8 +1204,8 @@ export default function Home() {
             {/* Mascot left */}
             <div className="lg:col-span-4 flex flex-col items-center text-center min-w-0">
               <MascotBe pose="shield" className="w-56 h-56 filter drop-shadow-xl" />
-              <span className="text-[10px] sm:text-[11px] font-light text-primary-orange uppercase tracking-[0.18em] mt-4">
-                ESCUDO DE PROTEÇÃO BCRED
+              <span className="bg-white/10 text-primary-orange px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.18em] mt-4">
+                PROTEÇÃO GARANTIDA
               </span>
             </div>
 
