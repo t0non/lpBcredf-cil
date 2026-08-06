@@ -564,7 +564,7 @@ export default function Home() {
             
             {/* Active connection line filled on scroll */}
             <div 
-              className="absolute left-[13px] top-3 w-0.5 bg-primary-orange rounded-full transition-all duration-300 origin-top"
+              className="absolute left-[13px] top-3 w-0.5 bg-primary-orange rounded-full origin-top"
               style={{ height: `${stepProgress}%` }}
             />
             
@@ -580,7 +580,7 @@ export default function Home() {
               </div>
               <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
                 stepProgress >= 2
-                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  ? 'bg-primary-orange text-white' 
                   : 'bg-[#0B2545] text-gray-400 border border-white/10'
               }`}>
                 {stepProgress >= 2 ? (
@@ -601,7 +601,7 @@ export default function Home() {
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
               <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
                 stepProgress >= 18
-                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  ? 'bg-primary-orange text-white' 
                   : 'bg-[#0B2545] text-gray-400 border border-white/10'
               }`}>
                 {stepProgress >= 18 ? (
@@ -622,7 +622,7 @@ export default function Home() {
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
               <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
                 stepProgress >= 36
-                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  ? 'bg-primary-orange text-white' 
                   : 'bg-[#0B2545] text-gray-400 border border-white/10'
               }`}>
                 {stepProgress >= 36 ? (
@@ -643,7 +643,7 @@ export default function Home() {
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
               <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
                 stepProgress >= 54
-                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  ? 'bg-primary-orange text-white' 
                   : 'bg-[#0B2545] text-gray-400 border border-white/10'
               }`}>
                 {stepProgress >= 54 ? (
@@ -664,7 +664,7 @@ export default function Home() {
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
               <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
                 stepProgress >= 72
-                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  ? 'bg-primary-orange text-white' 
                   : 'bg-[#0B2545] text-gray-400 border border-white/10'
               }`}>
                 {stepProgress >= 72 ? (
@@ -685,7 +685,7 @@ export default function Home() {
             <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
               <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
                 stepProgress >= 90
-                  ? 'bg-primary-orange text-white scale-110 shadow-[0_0_12px_rgba(250,99,0,0.6)]' 
+                  ? 'bg-primary-orange text-white' 
                   : 'bg-[#0B2545] text-gray-400 border border-white/10'
               }`}>
                 {stepProgress >= 90 ? (
