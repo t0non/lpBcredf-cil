@@ -34,7 +34,14 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  }
+  },
+  icons: {
+    icon: [
+      { url: '/fiveicon.png', type: 'image/png' },
+    ],
+    shortcut: '/fiveicon.png',
+    apple: '/fiveicon.png',
+  },
 };
 
 export default function RootLayout({
