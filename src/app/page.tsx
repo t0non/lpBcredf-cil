@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { companyConfig } from '@/config/company';
 import { MascotBe } from '@/components/MascotBe';
 import { LeadForm } from '@/components/LeadForm';
@@ -881,13 +882,14 @@ export default function Home() {
             <div className="animate-marquee gap-14 md:gap-24 items-center">
               {duplicatedRow1.map((item, idx) => (
                 <div key={idx} aria-hidden={idx >= row1.length ? "true" : undefined} className="flex-shrink-0 flex items-center justify-center h-14 md:h-20 px-4">
-                  <img
+                  <Image
                     src={item.src}
                     alt={idx >= row1.length ? "" : item.alt}
                     title={item.name}
+                    width={140}
+                    height={56}
                     className="h-10 md:h-14 w-auto object-contain max-w-none transition-all duration-200"
                     loading="lazy"
-                    decoding="async"
                   />
                 </div>
               ))}
@@ -899,13 +901,14 @@ export default function Home() {
             <div className="animate-marquee-reverse gap-14 md:gap-24 items-center">
               {duplicatedRow2.map((item, idx) => (
                 <div key={idx} aria-hidden={idx >= row2.length ? "true" : undefined} className="flex-shrink-0 flex items-center justify-center h-14 md:h-20 px-4">
-                  <img
+                  <Image
                     src={item.src}
                     alt={idx >= row2.length ? "" : item.alt}
                     title={item.name}
+                    width={140}
+                    height={56}
                     className="h-10 md:h-14 w-auto object-contain max-w-none transition-all duration-200"
                     loading="lazy"
-                    decoding="async"
                   />
                 </div>
               ))}
