@@ -42,7 +42,7 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">
         {/* Left Column */}
         <div className="lg:col-span-7 space-y-5">
-          <span className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-xs font-bold uppercase tracking-wider">
+          <span className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-xs font-medium uppercase tracking-wider whitespace-nowrap">
             {badge}
           </span>
 

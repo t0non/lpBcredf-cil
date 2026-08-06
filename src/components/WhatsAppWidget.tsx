@@ -1,27 +1,29 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { companyConfig } from '@/config/company';
 
 export function WhatsAppWidget() {
   const [isVisible, setIsVisible] = useState(false);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show widget after scrolling 300px (when the user passes the first section)
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      // Throttle via requestAnimationFrame to avoid excessive re-renders on mobile
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        setIsVisible(window.scrollY > 300);
+        rafRef.current = null;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    // Initial check in case they reload and are already scrolled down
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
@@ -45,10 +47,14 @@ export function WhatsAppWidget() {
       </span>
       
       {/* WhatsApp Image */}
-      <img
+      <Image
         src="/widget_whatsapp.png"
         alt="WhatsApp"
+        width={64}
+        height={64}
         className="w-16 h-16 object-contain drop-shadow-lg"
+        loading="lazy"
+        decoding="async"
       />
     </a>
   );

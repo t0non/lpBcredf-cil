@@ -11,8 +11,10 @@ import { WhatsAppWidget } from "@/components/WhatsAppWidget";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "600", "700", "900"],
   display: 'swap',
+  preload: true,
+  adjustFontFallback: false,
 });
 
 const siteUrl = trackingConfig.siteUrl

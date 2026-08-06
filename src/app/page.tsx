@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { companyConfig } from '@/config/company';
 import { MascotBe } from '@/components/MascotBe';
@@ -32,27 +32,34 @@ export default function Home() {
   const [openAposentadoFaq, setOpenAposentadoFaq] = useState<number | null>(null);
   const [stepProgress, setStepProgress] = useState(0);
 
+  const stepRafRef = useRef<number | null>(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      const element = document.getElementById('mobile-steps-container');
-      if (!element) return;
-      
-      const rect = element.getBoundingClientRect();
-      const elementHeight = rect.height;
-      const viewHeight = window.innerHeight;
-      
-      // Grow active line relative to trigger point (middle of the screen)
-      const triggerPoint = viewHeight * 0.55; 
-      const currentDistance = triggerPoint - rect.top;
-      
-      let progress = (currentDistance / elementHeight) * 100;
-      progress = Math.min(Math.max(progress, 0), 100);
-      setStepProgress(progress);
+      // Throttle via requestAnimationFrame for better mobile performance
+      if (stepRafRef.current) return;
+      stepRafRef.current = requestAnimationFrame(() => {
+        const element = document.getElementById('mobile-steps-container');
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const elementHeight = rect.height;
+          const viewHeight = window.innerHeight;
+          const triggerPoint = viewHeight * 0.55;
+          const currentDistance = triggerPoint - rect.top;
+          let progress = (currentDistance / elementHeight) * 100;
+          progress = Math.min(Math.max(progress, 0), 100);
+          setStepProgress(progress);
+        }
+        stepRafRef.current = null;
+      });
     };
     
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (stepRafRef.current) cancelAnimationFrame(stepRafRef.current);
+    };
   }, []);
 
   const toggleFaq = (index: number) => {
@@ -487,10 +494,12 @@ export default function Home() {
               {/* Mascot 3 Peeking from behind Card 1 */}
               <div className="absolute -top-[126px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
                 <img
-                  src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
+                  src="/images/mascotes/mascote-bcred-pensativa-uniforme.png"
                   alt=""
                   aria-hidden="true"
                   className="w-[135px] h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               
@@ -579,10 +588,12 @@ export default function Home() {
               {/* Mascot 3 Peeking from behind Card 1 */}
               <div className="absolute -top-[94px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
                 <img
-                  src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
+                  src="/images/mascotes/mascote-bcred-pensativa-uniforme.png"
                   alt=""
                   aria-hidden="true"
                   className="w-[100px] h-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               
@@ -749,9 +760,11 @@ export default function Home() {
           {/* Mascote Apontando (Centralized above cards) */}
           <div className="flex justify-center mb-2 pointer-events-none" aria-hidden="true">
             <img
-              src="/mascotebcredfacil.png?v=2"
+              src="/mascotebcredfacil.png"
               alt="Mascote Bê"
               className="w-[120px] h-[120px] object-contain filter drop-shadow-md"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -875,6 +888,8 @@ export default function Home() {
                     alt={idx >= row1.length ? "" : item.alt}
                     title={item.name}
                     className="h-10 md:h-14 w-auto object-contain max-w-none transition-all duration-200"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -891,6 +906,8 @@ export default function Home() {
                     alt={idx >= row2.length ? "" : item.alt}
                     title={item.name}
                     className="h-10 md:h-14 w-auto object-contain max-w-none transition-all duration-200"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
