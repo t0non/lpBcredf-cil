@@ -761,7 +761,7 @@ export default function Home() {
             {/* Card 1: Crédito Consignado */}
             <div className="bg-[#061A3A] border-2 border-primary-orange/30 rounded-[18px] p-6 flex flex-col justify-between text-white relative shadow-md">
               <div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex flex-col items-start gap-1.5 mb-4">
                   <h3 className="font-display font-black text-xl text-white">
                     Crédito Consignado
                   </h3>
@@ -805,7 +805,7 @@ export default function Home() {
             {/* Card 2: Empréstimo Pessoal */}
             <div className="bg-white border border-gray-200 rounded-[18px] p-6 flex flex-col justify-between text-gray-800 relative shadow-sm hover:border-gray-300 transition-colors">
               <div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex flex-col items-start gap-1.5 mb-4">
                   <h3 className="font-display font-black text-xl text-primary-navy">
                     Empréstimo Pessoal
                   </h3>
