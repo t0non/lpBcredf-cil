@@ -482,21 +482,27 @@ export default function Home() {
           <div className="hidden lg:flex space-x-6 overflow-x-auto pb-6 scrollbar-thin scrollbar-thumb-primary-orange scrollbar-track-white/10 snap-x">
             
             {/* Step 1 */}
-            <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300 relative overflow-visible mt-[45px]">
-              {/* Mascot 3 Peeking from the top-right of Card 1 */}
-              <div className="absolute -top-[45px] -right-2 pointer-events-none z-20">
+            {/* Step 1 container */}
+            <div className="relative flex-shrink-0 w-80 snap-start mt-[45px] overflow-visible">
+              {/* Mascot 3 Peeking from behind Card 1 */}
+              <div className="absolute -top-[48px] right-4 pointer-events-none z-0">
                 <img
                   src="/mascotebcredfacil3.png?v=3"
-                  alt="Mascote Bê"
-                  className="w-[70px] h-auto object-contain"
+                  alt=""
+                  aria-hidden="true"
+                  className="w-[95px] h-auto object-contain"
                 />
               </div>
-              <div>
-                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">1</span>
-                <h4 className="font-display font-bold text-base text-white mb-2">Escolha seu perfil</h4>
-                <p className="text-xs text-gray-300 leading-relaxed font-sans">
-                  Informe se você é aposentado, pensionista ou trabalhador com carteira assinada.
-                </p>
+              
+              {/* Actual Card */}
+              <div className="relative z-10 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 h-full flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300 backdrop-blur-sm">
+                <div>
+                  <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">1</span>
+                  <h4 className="font-display font-bold text-base text-white mb-2">Escolha seu perfil</h4>
+                  <p className="text-xs text-gray-300 leading-relaxed font-sans">
+                    Informe se você é aposentado, pensionista ou trabalhador com carteira assinada.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -568,32 +574,37 @@ export default function Home() {
               style={{ height: `${stepProgress}%` }}
             />
             
-            {/* Step 1 */}
-            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start overflow-visible mt-8">
-              {/* Mascot 3 Peeking from the top-right of Card 1 */}
-              <div className="absolute -top-[38px] right-4 pointer-events-none z-20">
+            {/* Step 1 container */}
+            <div className="relative overflow-visible mt-10 w-full">
+              {/* Mascot 3 Peeking from behind Card 1 */}
+              <div className="absolute -top-[34px] right-6 pointer-events-none z-0">
                 <img
                   src="/mascotebcredfacil3.png?v=3"
-                  alt="Mascote Bê"
-                  className="w-[60px] h-auto object-contain"
+                  alt=""
+                  aria-hidden="true"
+                  className="w-[75px] h-auto object-contain"
                 />
               </div>
-              <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
-                stepProgress >= 2
-                  ? 'bg-primary-orange text-white' 
-                  : 'bg-[#0B2545] text-gray-400 border border-white/10'
-              }`}>
-                {stepProgress >= 2 ? (
-                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                ) : 1}
-              </span>
-              <div>
-                <h4 className="font-display font-bold text-sm text-white mb-1">Escolha seu perfil</h4>
-                <p className="text-xs text-gray-300 font-sans leading-relaxed">
-                  Informe se você é aposentado, pensionista ou trabalhador com carteira assinada.
-                </p>
+              
+              {/* Actual Card */}
+              <div className="relative z-10 bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start backdrop-blur-sm">
+                <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
+                  stepProgress >= 2
+                    ? 'bg-primary-orange text-white' 
+                    : 'bg-[#0B2545] text-gray-400 border border-white/10'
+                }`}>
+                  {stepProgress >= 2 ? (
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : 1}
+                </span>
+                <div>
+                  <h4 className="font-display font-bold text-sm text-white mb-1">Escolha seu perfil</h4>
+                  <p className="text-xs text-gray-300 font-sans leading-relaxed">
+                    Informe se você é aposentado, pensionista ou trabalhador com carteira assinada.
+                  </p>
+                </div>
               </div>
             </div>
 
