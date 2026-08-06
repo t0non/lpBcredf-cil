@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col space-y-4">
             <div className="flex items-center">
               <img
-                src="/logobcredfacil.png?v=2"
+                src="/logobcredfacil.png?v=3"
                 alt="BCred Fácil"
                 className="h-10 w-auto object-contain"
               />

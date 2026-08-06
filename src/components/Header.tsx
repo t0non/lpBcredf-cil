@@ -54,7 +54,7 @@ export const Header: React.FC = () => {
           {/* Logo Brand */}
           <Link href="/" className="flex items-center focus:outline-none py-1 absolute left-1/2 transform -translate-x-1/2 lg:relative lg:left-auto lg:transform-none">
             <img
-              src="/logobcredfacil.png?v=2"
+              src="/logobcredfacil.png?v=3"
               alt="BCred Fácil"
               className="h-9 lg:h-10 w-auto object-contain transition-transform duration-200 hover:scale-105"
             />

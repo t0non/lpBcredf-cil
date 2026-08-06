@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { companyConfig } from '@/config/company';
 import { MascotBe } from '@/components/MascotBe';
@@ -30,6 +30,37 @@ const duplicatedRow2 = [...row2, ...row2, ...row2, ...row2, ...row2];
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [openAposentadoFaq, setOpenAposentadoFaq] = useState<number | null>(null);
+  const [stepProgress, setStepProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const element = document.getElementById('como-funciona');
+      if (!element) return;
+      
+      const rect = element.getBoundingClientRect();
+      const elementHeight = rect.height;
+      const viewHeight = window.innerHeight;
+      
+      // Calculate progress based on scroll position inside the element
+      const start = rect.top - viewHeight;
+      const end = rect.top + elementHeight;
+      
+      if (rect.top > viewHeight) {
+        setStepProgress(0);
+      } else if (rect.top + elementHeight < 0) {
+        setStepProgress(100);
+      } else {
+        const total = elementHeight + viewHeight;
+        const current = viewHeight - rect.top;
+        const scrolled = (current / total) * 100;
+        setStepProgress(Math.min(Math.max(scrolled, 0), 100));
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -415,7 +446,7 @@ export default function Home() {
                 <strong>Aviso:</strong> A disponibilidade depende da situação do benefício, da margem consignável e da aprovação da instituição responsável.
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 text-center lg:text-left">
                 <a
                   href={`https://wa.me/${companyConfig.whatsapp}?text=Olá!%20Gostaria%20de%20consultar%20minha%20possibilidade%20de%20crédito%20consignado%20INSS.`}
                   target="_blank"
@@ -473,7 +504,7 @@ export default function Home() {
             {/* Step 1 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-sm mb-4">1</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">1</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Escolha seu perfil</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Informe se você é aposentado, pensionista ou trabalhador com carteira assinada.
@@ -484,7 +515,7 @@ export default function Home() {
             {/* Step 2 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-sm mb-4">2</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">2</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Inicie a simulação</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Fale com a equipe da BCred Fácil pelo WhatsApp.
@@ -495,7 +526,7 @@ export default function Home() {
             {/* Step 3 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-sm mb-4">3</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">3</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Envie as informações</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Compartilhe apenas os dados necessários para a análise inicial.
@@ -506,7 +537,7 @@ export default function Home() {
             {/* Step 4 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-sm mb-4">4</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">4</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Confira as possibilidades</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Um consultor explica as opções que podem estar disponíveis para o seu perfil.
@@ -517,7 +548,7 @@ export default function Home() {
             {/* Step 5 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-sm mb-4">5</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">5</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Analise as condições</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Confira instituição responsável, parcelas, taxas, prazos e Custo Efetivo Total.
@@ -528,7 +559,7 @@ export default function Home() {
             {/* Step 6 */}
             <div className="flex-shrink-0 w-80 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 snap-start flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300">
               <div>
-                <span className="w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-sm mb-4">6</span>
+                <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-lg mb-4">6</span>
                 <h4 className="font-display font-bold text-base text-white mb-2">Confirme a contratação</h4>
                 <p className="text-xs text-gray-300 leading-relaxed font-sans">
                   Caso concorde com as condições, siga o procedimento indicado pela instituição financeira.
@@ -539,11 +570,19 @@ export default function Home() {
           </div>
 
           {/* Mobile Vertical stack */}
-          <div className="lg:hidden space-y-6">
+          <div className="lg:hidden relative pl-8 space-y-6">
+            {/* Connection line track */}
+            <div className="absolute left-[13px] top-3 bottom-3 w-0.5 bg-white/10 rounded-full" />
+            
+            {/* Active connection line filled on scroll */}
+            <div 
+              className="absolute left-[13px] top-3 w-0.5 bg-primary-orange rounded-full transition-all duration-300 origin-top"
+              style={{ height: `${stepProgress}%` }}
+            />
             
             {/* Step 1 */}
-            <div className="bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start space-x-4">
-              <span className="w-7 h-7 flex-shrink-0 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-xs">1</span>
+            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">1</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Escolha seu perfil</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -553,8 +592,8 @@ export default function Home() {
             </div>
 
             {/* Step 2 */}
-            <div className="bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start space-x-4">
-              <span className="w-7 h-7 flex-shrink-0 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-xs">2</span>
+            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">2</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Inicie a simulação</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -564,8 +603,8 @@ export default function Home() {
             </div>
 
             {/* Step 3 */}
-            <div className="bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start space-x-4">
-              <span className="w-7 h-7 flex-shrink-0 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-xs">3</span>
+            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">3</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Envie as informações iniciais</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -575,8 +614,8 @@ export default function Home() {
             </div>
 
             {/* Step 4 */}
-            <div className="bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start space-x-4">
-              <span className="w-7 h-7 flex-shrink-0 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-xs">4</span>
+            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">4</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Confira as possibilidades</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -586,8 +625,8 @@ export default function Home() {
             </div>
 
             {/* Step 5 */}
-            <div className="bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start space-x-4">
-              <span className="w-7 h-7 flex-shrink-0 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-xs">5</span>
+            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">5</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Analise as condições</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -597,8 +636,8 @@ export default function Home() {
             </div>
 
             {/* Step 6 */}
-            <div className="bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start space-x-4">
-              <span className="w-7 h-7 flex-shrink-0 rounded-full bg-primary-orange text-white flex items-center justify-center font-bold text-xs">6</span>
+            <div className="relative bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start">
+              <span className="absolute -left-[36px] top-4 w-8 h-8 rounded-full bg-primary-orange text-white flex items-center justify-center font-black text-base z-10">6</span>
               <div>
                 <h4 className="font-display font-bold text-sm text-white mb-1">Confirme a contratação</h4>
                 <p className="text-xs text-gray-300 font-sans leading-relaxed">
@@ -667,7 +706,9 @@ export default function Home() {
                 <div className="space-y-4 font-sans text-left mt-6">
                   <div>
                     <span className="block text-[11px] text-gray-400 font-bold uppercase tracking-wider">Taxas</span>
-                    <p className="text-[14px] text-gray-100 font-semibold mt-0.5">Geralmente mais baixas</p>
+                    <p className="text-[14px] text-gray-100 font-semibold mt-0.5">
+                      Geralmente mais <span className="text-[#25D366] font-bold">baixas</span>
+                    </p>
                   </div>
                   <div className="border-t border-white/10 pt-3">
                     <span className="block text-[11px] text-gray-400 font-bold uppercase tracking-wider">Pagamento</span>
@@ -706,7 +747,9 @@ export default function Home() {
                 <div className="space-y-4 font-sans text-left mt-6">
                   <div>
                     <span className="block text-[11px] text-gray-500 font-bold uppercase tracking-wider">Taxas</span>
-                    <p className="text-[14px] text-gray-900 font-semibold mt-0.5">Podem ser mais elevadas</p>
+                    <p className="text-[14px] text-gray-900 font-semibold mt-0.5">
+                      Podem ser mais <span className="text-red-500 font-bold">elevadas</span>
+                    </p>
                   </div>
                   <div className="border-t border-gray-100 pt-3">
                     <span className="block text-[11px] text-gray-500 font-bold uppercase tracking-wider">Pagamento</span>
@@ -1225,7 +1268,7 @@ export default function Home() {
                   <span className="text-xs text-gray-500">Digital ou Presencial</span>
                 </div>
                 <div className="p-4 bg-white rounded-lg shadow-sm border border-gray-100">
-                  <span className="block text-2xl font-bold text-primary-blue">Grátis</span>
+                  <span className="block text-2xl font-bold text-emerald-500">Grátis</span>
                   <span className="text-xs text-gray-500">Taxa de Simulação</span>
                 </div>
               </div>
