@@ -77,8 +77,8 @@ export default function Home() {
             {/* Hero Left Content */}
             <div className="space-y-6 text-center lg:text-left min-w-0">
               
-              <div className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-xs font-bold tracking-wider">
-                ⚡ Atendimento rápido, humano e seguro
+              <div className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-xs font-medium tracking-widest">
+                ATENDIMENTO RÁPIDO, HUMANO E SEGURO
               </div>
 
               <h1 className="text-[clamp(2.2rem,4vw,3.25rem)] font-display font-extrabold tracking-tight text-white leading-tight max-w-[720px]">
@@ -166,8 +166,8 @@ export default function Home() {
       {/* ==================================================
           INTRODUÇÃO: O QUE É EMPRÉSTIMO CONSIGNADO
          ================================================== */}
-      <section id="o-que-e-consignado" className="py-10 md:py-14 lg:py-16 bg-gray-50 border-b border-gray-100 text-center">
-        <Container>
+      <section id="o-que-e-consignado" className="relative z-20 pt-10 pb-24 md:pt-14 md:pb-32 lg:pt-16 lg:pb-48 bg-gray-50 border-b border-gray-100 text-center">
+        <Container className="relative z-10">
           <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-primary-navy tracking-tight max-w-[720px] mx-auto">
             O que é <span className="text-primary-orange">Empréstimo Consignado</span>?
           </h2>
@@ -175,12 +175,24 @@ export default function Home() {
             O Empréstimo Consignado é um crédito exclusivo para aposentados e pensionistas do INSS, com desconto direto na folha de pagamento e juros mais baixos.
           </p>
         </Container>
+
+        {/* Mascote Espiando (Branding) */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none z-0 translate-y-[24%] opacity-95"
+          aria-hidden="true"
+        >
+          <img 
+            src="/mascotecredfacil2.png" 
+            alt="" 
+            className="w-[220px] sm:w-[280px] md:w-[360px] lg:w-[460px] object-contain"
+          />
+        </div>
       </section>
 
       {/* ==================================================
           1. VANTAGENS DO CRÉDITO CONSIGNADO INSS
          ================================================== */}
-      <section id="vantagens" className="py-14 md:py-20 lg:py-24 bg-white border-b border-gray-100">
+      <section id="vantagens" className="relative z-10 py-14 md:py-20 lg:py-24 bg-white border-b border-gray-100">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-primary-orange font-bold text-xs uppercase tracking-wider">Benefícios Exclusivos</span>

@@ -1,12 +1,17 @@
 import { MetadataRoute } from 'next';
+import { trackingConfig } from '@/config/tracking';
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/obrigado'], // Hide thank you page from search index
+      disallow: [
+        '/obrigado',
+        '/simule/*',
+        '/api/*',
+      ],
     },
-    sitemap: 'https://www.bcredfacil.com.br/sitemap.xml',
+    sitemap: `${trackingConfig.siteUrl}/sitemap.xml`,
   };
 }

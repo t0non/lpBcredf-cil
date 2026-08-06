@@ -1,6 +1,19 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { companyConfig } from '@/config/company';
 import { MascotBe } from '@/components/MascotBe';
+
+export const metadata: Metadata = {
+  title: 'Sobre a BCred Fácil | Atendimento em Nova Iguaçu',
+  description: 'Conheça a BCred Fácil, sua forma de atendimento e o significado do mascote que representa rapidez, atenção e cuidado.',
+  alternates: { canonical: '/sobre' },
+  openGraph: {
+    title: `Sobre a BCred Fácil | Atendimento em ${companyConfig.city}`,
+    description: 'Conheça a BCred Fácil, sua forma de atendimento e o significado do mascote que representa rapidez, atenção e cuidado.',
+    locale: 'pt_BR',
+    type: 'website',
+  },
+};
 
 export default function Sobre() {
   return (

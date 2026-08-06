@@ -1,6 +1,20 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { companyConfig } from '@/config/company';
 import { MascotBe } from '@/components/MascotBe';
+
+export const metadata: Metadata = {
+  title: 'Segurança no Crédito Consignado',
+  description: 'Veja como proteger seus dados, confirmar canais oficiais e evitar golpes durante uma solicitação de crédito.',
+  alternates: { canonical: '/seguranca' },
+  openGraph: {
+    title: `Segurança no Crédito Consignado | ${companyConfig.name}`,
+    description: 'Veja como proteger seus dados, confirmar canais oficiais e evitar golpes durante uma solicitação de crédito.',
+    locale: 'pt_BR',
+    type: 'website',
+  },
+};
+
 
 export default function Seguranca() {
   return (

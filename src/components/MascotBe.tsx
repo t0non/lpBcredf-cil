@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 interface MascotProps {
-  pose: 'reception' | 'guide' | 'shield' | 'pointer';
+  pose: 'reception' | 'guide' | 'shield' | 'pointer' | 'default';
   className?: string;
 }
 

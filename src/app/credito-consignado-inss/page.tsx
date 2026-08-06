@@ -201,7 +201,7 @@ export default function CreditoConsignadoInss() {
               </p>
             </div>
             <LeadForm
-              defaultProfile="aposentado"
+              defaultProfile="credito-consignado-inss"
               sourcePage="credito-consignado-inss"
               ctaText="Consultar possibilidades para INSS"
             />

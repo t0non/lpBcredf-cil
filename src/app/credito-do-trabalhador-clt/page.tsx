@@ -204,7 +204,7 @@ export default function CreditoDoTrabalhadorClt() {
               </p>
             </div>
             <LeadForm
-              defaultProfile="clt"
+              defaultProfile="credito-do-trabalhador"
               sourcePage="credito-do-trabalhador-clt"
               ctaText="Consultar possibilidades para CLT"
             />

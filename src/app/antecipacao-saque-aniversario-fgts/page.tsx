@@ -198,7 +198,7 @@ export default function AntecipacaoFgts() {
               </p>
             </div>
             <LeadForm
-              defaultProfile="fgts"
+              defaultProfile="antecipacao-fgts"
               sourcePage="antecipacao-fgts"
               ctaText="Consultar possibilidades com FGTS"
             />

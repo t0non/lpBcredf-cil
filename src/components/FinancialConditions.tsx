@@ -16,12 +16,6 @@ export const FinancialConditions: React.FC = () => {
         <p className="text-sm text-gray-600 leading-relaxed font-sans">
           {financialConditions.disclaimer}
         </p>
-        {/* Technical compliance notice visible in development mode */}
-        {process.env.NODE_ENV === 'development' && (
-          <div className="mt-3 p-2 bg-yellow-50 border border-yellow-200 rounded text-xs text-yellow-800">
-            ⚠️ <strong>AVISO TÉCNICO DE COMPLIANCE:</strong> As condições financeiras reais não foram configuradas. O site está exibindo a mensagem padrão regulatória para evitar multas. Para ativar a exibição de taxas e simulador real, atualize os dados em <code>src/config/company.ts</code> definindo <code>hasValidatedData: true</code> com valores comprovados pelo departamento de conformidade jurídica.
-          </div>
-        )}
       </div>
     );
   }

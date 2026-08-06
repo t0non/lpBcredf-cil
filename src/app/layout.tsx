@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { companyConfig } from "@/config/company";
+import { trackingConfig } from "@/config/tracking";
+import { OrganizationJsonLd } from "@/components/OrganizationJsonLd";
+import { GlobalHeaderWrapper } from "@/components/GlobalHeaderWrapper";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -13,23 +14,33 @@ const poppins = Poppins({
   display: 'swap',
 });
 
+const siteUrl = trackingConfig.siteUrl
+  ? new URL(trackingConfig.siteUrl)
+  : new URL('https://bcredfacil.com.br');
+
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: {
-    default: `${companyConfig.name} | Crédito Consignado INSS e Crédito CLT`,
+    default: `Crédito Consignado em ${companyConfig.city} | ${companyConfig.name}`,
     template: `%s | ${companyConfig.name}`
   },
-  description: `Orientação transparente em crédito consignado para aposentados e pensionistas do INSS e Crédito do Trabalhador CLT em ${companyConfig.city}/${companyConfig.state}.`,
-  metadataBase: new URL('https://www.bcredfacil.com.br'),
-  alternates: {
-    canonical: '/',
+  description: `Consulte crédito consignado INSS, Crédito do Trabalhador e portabilidade com atendimento rápido, humano e seguro em ${companyConfig.city}.`,
+  applicationName: companyConfig.name,
+  authors: [{ name: companyConfig.name }],
+  creator: companyConfig.name,
+  publisher: companyConfig.name,
+  category: 'finance',
+  formatDetection: {
+    telephone: true,
+    email: false,
+    address: false,
   },
   openGraph: {
-    title: `${companyConfig.name} | Crédito Consignado e CLT`,
-    description: `Orientação transparente em crédito consignado para aposentados e pensionistas do INSS e Crédito do Trabalhador CLT em ${companyConfig.city}/${companyConfig.state}.`,
-    url: 'https://www.bcredfacil.com.br',
-    siteName: companyConfig.name,
-    locale: 'pt_BR',
     type: 'website',
+    locale: 'pt_BR',
+    siteName: companyConfig.name,
+    title: `Crédito Consignado em ${companyConfig.city} | ${companyConfig.name}`,
+    description: `Consulte crédito consignado INSS, Crédito do Trabalhador e portabilidade com atendimento rápido, humano e seguro em ${companyConfig.city}.`,
   },
   robots: {
     index: true,
@@ -49,72 +60,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD Structured Data
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FinancialService",
-    "name": companyConfig.name,
-    "legalName": companyConfig.razaoSocial,
-    ...(companyConfig.cnpjIsReady && { "taxID": companyConfig.cnpj }),
-    "url": "https://www.bcredfacil.com.br",
-    ...(companyConfig.phoneIsReady && { "telephone": companyConfig.phone }),
-    "email": companyConfig.email,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": companyConfig.address,
-      "addressLocality": companyConfig.city,
-      "addressRegion": companyConfig.state,
-      "postalCode": companyConfig.zipCode,
-      "addressCountry": "BR"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "08:00",
-      "closes": "18:00"
-    }
-  };
-
   return (
     <html lang="pt-BR" className={`${poppins.variable} h-full scroll-smooth antialiased`}>
       <head>
-        {/* Tracking Scripts placeholders */}
-        {companyConfig.tracking.gtmId && (
+        <OrganizationJsonLd />
+        {trackingConfig.gtmId && (
           <script
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${companyConfig.tracking.gtmId}');`
+              })(window,document,'script','dataLayer','${trackingConfig.gtmId}');`
             }}
           />
         )}
-        {/* Schema JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
       </head>
       <body className="min-h-full flex flex-col bg-gray-50 text-gray-900 font-sans">
-        {companyConfig.tracking.gtmId && (
+        {trackingConfig.gtmId && (
           <noscript>
             <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${companyConfig.tracking.gtmId}`}
+              src={`https://www.googletagmanager.com/ns.html?id=${trackingConfig.gtmId}`}
               height="0"
               width="0"
               style={{ display: 'none', visibility: 'hidden' }}
             />
           </noscript>
         )}
-        <Header />
-        <main className="flex-grow pt-[64px] lg:pt-[76px]">
+        <GlobalHeaderWrapper />
+        <main className="flex-grow">
           {children}
         </main>
         <CookieBanner />
