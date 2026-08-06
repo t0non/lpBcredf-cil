@@ -483,20 +483,20 @@ export default function Home() {
             
             {/* Step 1 */}
             {/* Step 1 container */}
-            <div className="relative flex-shrink-0 w-80 snap-start mt-[85px] overflow-visible">
+            <div className="relative flex-shrink-0 w-80 snap-start mt-[78px] overflow-visible">
               {/* Mascot 3 Peeking from behind Card 1 */}
-              <div className="absolute -top-[80px] right-3 pointer-events-none z-0">
+              <div className="absolute -top-[78px] right-3 pointer-events-none z-0">
                 <img
-                  src="/images/mascotes/mascote-bcred-pensativa-card.png?v=3"
+                  src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
                   alt=""
                   aria-hidden="true"
-                  className="w-[155px] h-auto object-contain"
+                  className="w-[190px] h-auto object-contain"
                 />
               </div>
               
               {/* Actual Card */}
-              <div className="relative z-10 bg-[#0B2545]/80 border border-white/5 rounded-2xl p-6 h-full flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300 backdrop-blur-sm">
-                <div>
+              <div className="relative z-10 bg-[#0B2545]/90 border border-white/5 rounded-2xl p-6 h-full flex flex-col justify-between hover:border-primary-orange/30 transition-all duration-300 backdrop-blur-sm">
+                <div className="pr-8">
                   <span className="w-9 h-9 rounded-full bg-primary-orange text-white flex items-center justify-center font-display font-black text-lg mb-4">1</span>
                   <h4 className="font-display font-bold text-base text-white mb-2">Escolha seu perfil</h4>
                   <p className="text-xs text-gray-300 leading-relaxed font-sans">
@@ -575,19 +575,19 @@ export default function Home() {
             />
             
             {/* Step 1 container */}
-            <div className="relative overflow-visible mt-24 w-full">
+            <div className="relative overflow-visible mt-16 w-full">
               {/* Mascot 3 Peeking from behind Card 1 */}
-              <div className="absolute -top-[75px] right-6 pointer-events-none z-0">
+              <div className="absolute -top-[95px] right-2 pointer-events-none z-0">
                 <img
-                  src="/images/mascotes/mascote-bcred-pensativa-card.png?v=3"
+                  src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
                   alt=""
                   aria-hidden="true"
-                  className="w-[115px] h-auto object-contain"
+                  className="w-[135px] sm:w-[150px] h-auto object-contain"
                 />
               </div>
               
               {/* Actual Card */}
-              <div className="relative z-10 bg-[#0B2545]/80 border border-white/5 rounded-xl p-5 flex items-start backdrop-blur-sm">
+              <div className="relative z-10 bg-[#0B2545]/90 border border-white/5 rounded-xl p-5 flex items-start backdrop-blur-sm">
                 <span className={`absolute -left-[36px] top-4 w-8 h-8 rounded-full flex items-center justify-center font-display font-black text-sm sm:text-base z-10 transition-all duration-300 ${
                   stepProgress >= 2
                     ? 'bg-primary-orange text-white' 
@@ -599,7 +599,7 @@ export default function Home() {
                     </svg>
                   ) : 1}
                 </span>
-                <div>
+                <div className="pr-12">
                   <h4 className="font-display font-bold text-sm text-white mb-1">Escolha seu perfil</h4>
                   <p className="text-xs text-gray-300 font-sans leading-relaxed">
                     Informe se você é aposentado, pensionista ou trabalhador com carteira assinada.
