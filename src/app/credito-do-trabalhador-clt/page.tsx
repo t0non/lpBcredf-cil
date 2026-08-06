@@ -99,7 +99,7 @@ export default function CreditoDoTrabalhadorClt() {
               Preencha o formulario e nossa equipe entrara em contato para orientar voce sobre as opcoes disponiveis para o seu perfil.
             </p>
           </div>
-          <LeadForm defaultProfile="clt" sourcePage="credito-do-trabalhador-clt" />
+          <LeadForm defaultProfile="clt" sourcePage="credito-do-trabalhador-clt" ctaText="Consultar possibilidades para CLT" />
         </div>
 
         <div className="mb-12">

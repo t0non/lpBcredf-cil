@@ -132,7 +132,7 @@ export default function CreditoConsignadoInss() {
               Preencha o formulario e nossa equipe entrara em contato para orientar voce sobre as opcoes disponiveis para o seu perfil e margem.
             </p>
           </div>
-          <LeadForm defaultProfile="aposentado" sourcePage="credito-consignado-inss" />
+          <LeadForm defaultProfile="aposentado" sourcePage="credito-consignado-inss" ctaText="Consultar possibilidades para INSS" />
         </div>
 
         <div className="mb-12">

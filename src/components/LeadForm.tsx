@@ -46,7 +46,7 @@ const UtmTracker: React.FC<{
 
 export const LeadForm: React.FC<LeadFormProps> = ({ 
   defaultProfile, 
-  ctaText = "Solicitar Simulação Segura",
+  ctaText = "Receber orientação pelo WhatsApp",
   sourcePage = "home"
 }) => {
   const router = useRouter();
@@ -303,7 +303,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         </button>
 
         <p className="text-center text-[10px] text-gray-400">
-          🔓 Simulação 100% gratuita e sem compromisso. Sujeito à análise de crédito.
+          Simulação sem compromisso. A solicitação está sujeita à análise.
         </p>
       </form>
     </div>

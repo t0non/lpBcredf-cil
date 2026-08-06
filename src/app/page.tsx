@@ -7,6 +7,7 @@ import { MascotBe } from '@/components/MascotBe';
 import { LeadForm } from '@/components/LeadForm';
 import { FinancialConditions } from '@/components/FinancialConditions';
 import { Container } from '@/components/Container';
+import { BrandMascotSection } from '@/components/BrandMascotSection';
 
 const row1 = [
   { name: "Itaú", src: "/logo_itau.webp", alt: "Logo do Itaú" },
@@ -76,12 +77,16 @@ export default function Home() {
             {/* Hero Left Content */}
             <div className="space-y-6 text-center lg:text-left min-w-0">
               
+              <div className="inline-block px-3 py-1 rounded bg-white/10 text-primary-orange text-xs font-bold tracking-wider">
+                ⚡ Atendimento rápido, humano e seguro
+              </div>
+
               <h1 className="text-[clamp(2.2rem,4vw,3.25rem)] font-display font-extrabold tracking-tight text-white leading-tight max-w-[720px]">
-                Crédito pensado para a sua realidade.
+                Crédito consignado em Nova Iguaçu com atendimento rápido e sem enrolação.
               </h1>
               
               <p className="text-lg sm:text-xl text-gray-300 font-sans max-w-[680px] mx-auto lg:mx-0 tp1--display">
-                Soluções para aposentados, pensionistas do INSS e trabalhadores com carteira assinada em <span className="text-primary-orange font-semibold">{companyConfig.city}/{companyConfig.state}</span>, com orientação clara do início ao fim.
+                Consulte possibilidades para aposentados, pensionistas do INSS e trabalhadores com carteira assinada. A BCred Fácil explica cada etapa e acompanha você pelo WhatsApp.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
@@ -89,15 +94,19 @@ export default function Home() {
                   href="#simulador" 
                   className="w-full sm:w-auto px-8 py-4 bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-base rounded-xl transition-all duration-200 shadow-lg text-center"
                 >
-                  Fazer uma simulação
+                  Ver minhas possibilidades
                 </a>
                 <a 
                   href="#perfil-selector" 
                   className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/20 font-display font-bold text-base rounded-xl transition-all duration-200 text-center"
                 >
-                  Conhecer as opções
+                  Falar com um orientador
                 </a>
               </div>
+              
+              <p className="text-xs text-gray-400 font-sans">
+                Simulação sem compromisso • Sujeita à análise da instituição financeira responsável
+              </p>
 
             </div>
 
@@ -140,7 +149,7 @@ export default function Home() {
                       ATENDIMENTO HUMANO
                     </span>
                     <h4 style={{ fontFamily: 'var(--font-poppins)' }} className="text-[18px] lg:text-[20px] font-sans font-bold text-primary-navy leading-tight w-full">
-                      Orientação de verdade <br className="hidden lg:block"/>pelo WhatsApp.
+                      Orientação rápida <br className="hidden lg:block"/>pelo WhatsApp.
                     </h4>
                     <p style={{ fontFamily: 'var(--font-poppins)' }} className="text-[12px] leading-relaxed text-primary-navy/85 font-medium font-sans">
                       Fale com nossa equipe e entenda cada etapa com clareza.
@@ -606,7 +615,10 @@ export default function Home() {
               Instituições com as quais trabalhamos
             </h2>
             <p className="text-gray-600 mt-2 text-sm max-w-[680px] mx-auto font-sans">
-              A BCred Fácil trabalha com diferentes instituições financeiras para consultar possibilidades conforme seu perfil e modalidade.
+              A BCred Fácil consulta possibilidades em diferentes instituições financeiras conforme seu perfil, modalidade e condições disponíveis.
+            </p>
+            <p className="text-xs text-gray-500 mt-2 max-w-[600px] mx-auto font-sans">
+              A disponibilidade de produtos e instituições pode variar conforme perfil, convênio, margem e análise da instituição responsável.
             </p>
           </div>
 
@@ -948,10 +960,10 @@ export default function Home() {
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-display font-extrabold text-primary-navy tracking-tight max-w-[720px] mx-auto">
-              Qual solução combina com você?
+              Qual opção combina com o seu perfil?
             </h2>
             <p className="text-gray-600 mt-2 text-base max-w-[680px] mx-auto">
-              Identifique o seu perfil abaixo e conheça as soluções específicas que preparamos para você.
+              Escolha seu perfil para entender a modalidade e consultar as possibilidades disponíveis.
             </p>
           </div>
 
@@ -968,7 +980,7 @@ export default function Home() {
                   Sou aposentado ou pensionista
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Conheça as possibilidades de crédito consignado vinculadas ao benefício do INSS. Parcelas descontadas diretamente do benefício com taxas de juros mais baixas.
+                  Consulte possibilidades de crédito consignado vinculado ao benefício do INSS.
                 </p>
               </div>
               <div className="mt-8">
@@ -993,7 +1005,7 @@ export default function Home() {
                   Trabalho com carteira assinada
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Entenda como funciona o Crédito do Trabalhador para profissionais sob regime CLT. Desconto simplificado em folha de pagamento ou opções através de antecipação do FGTS.
+                  Entenda como funciona o Crédito do Trabalhador com desconto em folha.
                 </p>
               </div>
               <div className="mt-8">
@@ -1006,8 +1018,18 @@ export default function Home() {
               </div>
             </div>
           </div>
+          
+          <div className="mt-10 text-center flex items-center justify-center space-x-3">
+            <MascotBe pose="pointer" className="w-10 h-10" />
+            <p className="text-sm text-gray-600 font-sans italic">
+              O Bê ajuda você a encontrar o caminho certo sem complicação.
+            </p>
+          </div>
         </Container>
       </section>
+
+      <BrandMascotSection />
+
 
       {/* 3. CONFIDENCE SECTION */}
       <section className="py-14 md:py-20 lg:py-24 bg-white">
@@ -1423,10 +1445,10 @@ export default function Home() {
           <MascotBe pose="pointer" className="w-44 h-44" />
           
           <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight max-w-[720px]">
-            Vamos entender qual opção faz sentido para você?
+            Quer entender quais possibilidades estão disponíveis para você?
           </h2>
           <p className="text-base text-gray-300 max-w-[680px] font-sans">
-            Fale com a equipe da BCred Fácil e receba uma orientação inicial sem burocracia e totalmente sem compromisso.
+            Fale com a equipe da BCred Fácil e receba uma orientação inicial rápida, clara e sem compromisso.
           </p>
 
           <div className="pt-2">
@@ -1436,12 +1458,12 @@ export default function Home() {
               rel="noopener noreferrer"
               className="px-8 py-4 bg-primary-orange hover:bg-secondary-orange text-white font-display font-bold text-base rounded-xl transition-all duration-200 shadow-lg"
             >
-              Conversar com um consultor
+              Falar com um orientador
             </a>
           </div>
 
           <p className="text-[10px] text-gray-400 font-sans max-w-[500px]">
-            *Crédito sujeito à análise, disponibilidade e condições da instituição financeira responsável.
+            A contratação depende da análise e das condições da instituição financeira responsável.
           </p>
         </Container>
       </section>
