@@ -485,7 +485,7 @@ export default function Home() {
             {/* Step 1 container */}
             <div className="relative flex-shrink-0 w-80 snap-start mt-[105px] overflow-visible">
               {/* Mascot 3 Peeking from behind Card 1 */}
-              <div className="absolute -top-[105px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
+              <div className="absolute -top-[115px] left-1/2 -translate-x-1/2 pointer-events-none z-20">
                 <img
                   src="/images/mascotes/mascote-bcred-pensativa-uniforme.png?v=3"
                   alt=""
@@ -723,7 +723,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-base font-bold rounded-xl text-white bg-primary-orange hover:bg-secondary-orange transition-all duration-200 shadow-md hover:shadow-lg focus:ring-2 focus:ring-offset-2 focus:ring-primary-orange"
             >
-              Começar minha simulação
+              Simular agora
             </a>
           </div>
 
