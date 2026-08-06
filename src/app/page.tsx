@@ -282,7 +282,7 @@ export default function Home() {
 
         {/* Mascote Espiando (Branding) */}
         <div 
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none z-0 translate-y-[24%] opacity-95"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none z-0 translate-y-[10%] opacity-95"
           aria-hidden="true"
         >
           <img 
